@@ -37,19 +37,3 @@
 * **Styling:** [Tailwind CSS](https://tailwindcss.com/) (v3)
 * **Icons:** [Lucide React](https://lucide.dev/)
 * **Data Source:** Tatoeba API (via CorsProxy/AllOrigins)
-
----
-
-## 🚀 Quick Start Guide
-
-Follow these steps to get Verb Master running on your local machine.
-
-### 1. Clone & Install
-```bash
-# Create the project directory (if starting fresh)
-npm create vite@latest verb-master -- --template react
-cd verb-master
-
-# Install dependencies
-npm install
-npm install lucide-react
