@@ -343,7 +343,7 @@ const SENTENCE_TEMPLATES = {
     { eng: "He has {pp} {obj} recently.", spa: "Él ha {ppSpa} {objSpa} recientemente.", ans: "has {pp}" },
     { eng: "We have {pp} {obj} before.", spa: "Hemos {ppSpa} {objSpa} antes.", ans: "have {pp}" },
     { eng: "They have {pp} {obj} just now.", spa: "Ellos han {ppSpa} {objSpa} justo ahora.", ans: "have {pp}" },
-    { eng: "She has never {pp} {obj}.", spa: "Ella nunca ha {ppSpa} {objSpa}.", ans: "has {pp}" }, 
+    { eng: "She has {pp} {obj} twice.", spa: "Ella ha {ppSpa} {objSpa} dos veces.", ans: "has {pp}" }, 
     { eng: "You have {pp} {obj} enough.", spa: "Has {ppSpa} {objSpa} suficiente.", ans: "have {pp}" }
   ],
   "Present Perfect Continuous": [
