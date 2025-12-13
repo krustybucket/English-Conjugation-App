@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Check, ArrowRight, RefreshCw, BookOpen, Trophy, AlertCircle, Sparkles, Globe, Loader2, Settings, Sliders, X, Filter, Search, Zap } from 'lucide-react';
+import { Check, ArrowRight, RefreshCw, BookOpen, Trophy, AlertCircle, Sparkles, Globe, Loader2, Settings, Sliders, X, Filter, Search, Zap, Moon, Sun } from 'lucide-react';
 
 // --- DATA & PATTERN GENERATION ---
 
@@ -478,6 +478,18 @@ const ConjugationApp = () => {
   const [apiError, setApiError] = useState(null);
   const [view, setView] = useState('settings'); // 'practice' | 'settings' | 'summary'
   
+  // Theme State
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  // Initialize theme based on system preference
+  useEffect(() => {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      setIsDarkMode(true);
+    }
+  }, []);
+
+  const toggleTheme = () => setIsDarkMode(!isDarkMode);
+
   // Settings State - Start Empty
   const [selectedTenses, setSelectedTenses] = useState([]);
   const [selectedVerbs, setSelectedVerbs] = useState([]);
@@ -763,17 +775,17 @@ const ConjugationApp = () => {
     const isFallback = currentExercise.id.toString().startsWith('fallback');
 
     return (
-      <main className="w-full max-w-md bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-100 relative">
+      <main className="w-full max-w-md bg-white dark:bg-slate-900 rounded-2xl shadow-xl overflow-hidden border border-slate-100 dark:border-slate-800 relative transition-colors duration-300">
         <button 
           onClick={() => setView('settings')}
-          className="absolute top-4 right-4 text-slate-300 hover:text-blue-500 transition-colors"
+          className="absolute top-4 right-4 text-slate-300 dark:text-slate-600 hover:text-blue-500 transition-colors"
           title="Customize Practice"
         >
           <Sliders size={20} />
         </button>
 
         {/* Progress Bar */}
-        <div className="w-full bg-slate-100 h-2">
+        <div className="w-full bg-slate-100 dark:bg-slate-800 h-2">
           <div 
             className="bg-blue-500 h-2 transition-all duration-500 ease-out"
             style={{ width: `${((currentExerciseIndex + 1) / exercises.length) * 100}%` }}
@@ -782,25 +794,25 @@ const ConjugationApp = () => {
 
         <div className="p-6 sm:p-8">
           <div className="text-center mb-8">
-            <div className="inline-block px-4 py-1 bg-blue-50 text-blue-700 rounded-full text-sm font-semibold mb-2">
+            <div className="inline-block px-4 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-semibold mb-2">
               {currentExercise.tense}
             </div>
-            <h2 className="text-3xl font-bold text-slate-800 mb-1">{currentExercise.verb}</h2>
-            <p className="text-slate-500 text-lg italic mb-2">{currentExercise.spanishVerb}</p>
+            <h2 className="text-3xl font-bold text-slate-800 dark:text-slate-100 mb-1">{currentExercise.verb}</h2>
+            <p className="text-slate-500 dark:text-slate-400 text-lg italic mb-2">{currentExercise.spanishVerb}</p>
             
             {isFallback && (
                <div className="mb-2 flex justify-center">
-                 <span className="text-[10px] uppercase tracking-wider bg-orange-100 text-orange-600 px-2 py-0.5 rounded-full flex items-center gap-1">
+                 <span className="text-[10px] uppercase tracking-wider bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-300 px-2 py-0.5 rounded-full flex items-center gap-1">
                    <Zap size={10} fill="currentColor" /> Generated
                  </span>
                </div>
             )}
 
-            <p className="text-slate-400 text-sm font-medium">"{currentExercise.spanishSentence}"</p>
+            <p className="text-slate-400 dark:text-slate-500 text-sm font-medium">"{currentExercise.spanishSentence}"</p>
           </div>
 
           <form onSubmit={handleCheck} className="mb-6">
-            <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 text-lg sm:text-xl leading-relaxed text-center shadow-inner">
+            <div className="bg-slate-50 dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 text-lg sm:text-xl leading-relaxed text-center shadow-inner transition-colors duration-300">
               <span>{currentExercise.sentenceParts[0]} </span>
               <span className="relative inline-block mx-1">
                 <input
@@ -810,10 +822,10 @@ const ConjugationApp = () => {
                   onChange={(e) => setUserInput(e.target.value)}
                   disabled={status === 'correct'}
                   className={`
-                    w-32 bg-white border-b-2 outline-none text-center font-semibold text-blue-700 px-1 py-0.5 rounded-t transition-colors
-                    ${status === 'idle' ? 'border-slate-300 focus:border-blue-500 focus:bg-blue-50' : ''}
-                    ${status === 'correct' ? 'border-green-500 bg-green-50 text-green-700' : ''}
-                    ${status === 'incorrect' ? 'border-red-500 bg-red-50 text-red-700' : ''}
+                    w-32 bg-white dark:bg-slate-700 border-b-2 outline-none text-center font-semibold text-blue-700 dark:text-blue-300 px-1 py-0.5 rounded-t transition-colors
+                    ${status === 'idle' ? 'border-slate-300 dark:border-slate-600 focus:border-blue-500 focus:bg-blue-50 dark:focus:bg-slate-600' : ''}
+                    ${status === 'correct' ? 'border-green-500 bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-300' : ''}
+                    ${status === 'incorrect' ? 'border-red-500 bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-300' : ''}
                   `}
                   placeholder="..."
                   autoComplete="off"
@@ -829,7 +841,7 @@ const ConjugationApp = () => {
                 <button 
                   type="button"
                   onClick={() => setShowHint(!showHint)}
-                  className="text-slate-400 hover:text-blue-500 text-sm flex items-center gap-1 transition-colors"
+                  className="text-slate-400 dark:text-slate-500 hover:text-blue-500 dark:hover:text-blue-400 text-sm flex items-center gap-1 transition-colors"
                 >
                   <Sparkles size={14} />
                   {showHint ? currentExercise.hint : "¿Necesitas una pista? / Need a hint?"}
@@ -844,7 +856,7 @@ const ConjugationApp = () => {
                 onClick={handleCheck}
                 disabled={!userInput.trim()}
                 className={`w-full py-3.5 rounded-xl font-bold text-white shadow-lg transition-all transform active:scale-95 flex items-center justify-center gap-2
-                  ${userInput.trim() ? 'bg-blue-600 hover:bg-blue-700 hover:shadow-blue-500/25' : 'bg-slate-300 cursor-not-allowed'}
+                  ${userInput.trim() ? 'bg-blue-600 hover:bg-blue-700 hover:shadow-blue-500/25' : 'bg-slate-300 dark:bg-slate-700 cursor-not-allowed'}
                 `}
               >
                 Comprobar / Check
@@ -863,12 +875,12 @@ const ConjugationApp = () => {
 
             {status === 'incorrect' && (
               <div className="flex gap-3 animate-in fade-in slide-in-from-bottom-2">
-                 <div className="flex-1 bg-red-50 border border-red-100 rounded-xl flex items-center justify-center px-4 text-red-600 font-medium">
-                    Incorrecto
+                 <div className="flex-1 bg-red-50 dark:bg-red-900/30 border border-red-100 dark:border-red-800 rounded-xl flex items-center justify-center px-4 text-red-600 dark:text-red-300 font-medium">
+                   Incorrecto
                  </div>
                  <button
                   onClick={handleRetry}
-                  className="px-6 py-3.5 bg-slate-800 hover:bg-slate-900 text-white rounded-xl font-bold shadow-lg transition-all transform active:scale-95 flex items-center justify-center gap-2"
+                  className="px-6 py-3.5 bg-slate-800 dark:bg-slate-700 hover:bg-slate-900 dark:hover:bg-slate-600 text-white rounded-xl font-bold shadow-lg transition-all transform active:scale-95 flex items-center justify-center gap-2"
                 >
                   <RefreshCw size={20} />
                   <span>Reintentar</span>
@@ -878,17 +890,17 @@ const ConjugationApp = () => {
           </div>
 
           <div className={`mt-4 text-center text-sm font-medium transition-colors duration-300 h-6
-            ${status === 'correct' ? 'text-green-600' : ''}
-            ${status === 'incorrect' ? 'text-red-500' : ''}
+            ${status === 'correct' ? 'text-green-600 dark:text-green-400' : ''}
+            ${status === 'incorrect' ? 'text-red-500 dark:text-red-400' : ''}
             ${status === 'idle' ? 'opacity-0' : 'opacity-100'}
           `}>
             {status === 'correct' ? '¡Excelente! / Excellent!' : status === 'incorrect' ? 'Inténtalo de nuevo / Try again' : ''}
           </div>
         </div>
         
-        <div className="bg-slate-50 p-4 border-t border-slate-100 flex justify-center">
-           <div className="text-xs text-slate-400 flex items-center gap-1">
-              <span className="font-semibold">{exercises.length}</span> exercises in queue
+        <div className="bg-slate-50 dark:bg-slate-900/50 p-4 border-t border-slate-100 dark:border-slate-800 flex justify-center">
+           <div className="text-xs text-slate-400 dark:text-slate-500 flex items-center gap-1">
+             <span className="font-semibold">{exercises.length}</span> exercises in queue
            </div>
         </div>
       </main>
@@ -897,31 +909,31 @@ const ConjugationApp = () => {
 
   // Render Summary View
   const renderSummaryView = () => (
-    <main className="w-full max-w-md bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-100 animate-in fade-in zoom-in-95 text-center p-8">
+    <main className="w-full max-w-md bg-white dark:bg-slate-900 rounded-2xl shadow-xl overflow-hidden border border-slate-100 dark:border-slate-800 animate-in fade-in zoom-in-95 text-center p-8 transition-colors duration-300">
       <div className="flex justify-center mb-6">
-        <div className="bg-yellow-100 p-4 rounded-full text-yellow-600">
+        <div className="bg-yellow-100 dark:bg-yellow-900/30 p-4 rounded-full text-yellow-600 dark:text-yellow-400">
           <Trophy size={48} />
         </div>
       </div>
       
-      <h2 className="text-2xl font-bold text-slate-800 mb-2">Round Complete!</h2>
-      <p className="text-slate-500 mb-8">You've finished this set of exercises.</p>
+      <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100 mb-2">Round Complete!</h2>
+      <p className="text-slate-500 dark:text-slate-400 mb-8">You've finished this set of exercises.</p>
       
       <div className="grid grid-cols-2 gap-4 mb-8">
-        <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
-          <div className="text-xs text-slate-400 font-bold uppercase tracking-wider mb-1">Total Score</div>
-          <div className="text-2xl font-bold text-blue-600">{score}</div>
+        <div className="bg-slate-50 dark:bg-slate-800 p-4 rounded-xl border border-slate-100 dark:border-slate-700">
+          <div className="text-xs text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider mb-1">Total Score</div>
+          <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">{score}</div>
         </div>
-        <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
-           <div className="text-xs text-slate-400 font-bold uppercase tracking-wider mb-1">Current Streak</div>
-           <div className="text-2xl font-bold text-orange-500">{streak}</div>
+        <div className="bg-slate-50 dark:bg-slate-800 p-4 rounded-xl border border-slate-100 dark:border-slate-700">
+           <div className="text-xs text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider mb-1">Current Streak</div>
+           <div className="text-2xl font-bold text-orange-500 dark:text-orange-400">{streak}</div>
         </div>
       </div>
 
       <button 
         onClick={() => handleLoadExercises(true)}
         disabled={isFetching}
-        className="w-full py-4 bg-blue-600 hover:bg-blue-700 disabled:bg-slate-300 text-white rounded-xl font-bold shadow-lg transition-all flex items-center justify-center gap-2"
+        className="w-full py-4 bg-blue-600 hover:bg-blue-700 disabled:bg-slate-300 dark:disabled:bg-slate-700 text-white rounded-xl font-bold shadow-lg transition-all flex items-center justify-center gap-2"
       >
         {/* Show loading state OR if we have prefetched data, show a ready indicator */}
         {isFetching ? (
@@ -944,7 +956,7 @@ const ConjugationApp = () => {
       
       <button 
         onClick={() => setView('settings')}
-        className="mt-4 text-slate-400 hover:text-blue-500 text-sm font-medium"
+        className="mt-4 text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 text-sm font-medium"
       >
         Adjust Settings
       </button>
@@ -953,32 +965,32 @@ const ConjugationApp = () => {
 
   // Render Settings View
   const renderSettingsView = () => (
-    <main className="w-full max-w-md bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-100 animate-in fade-in zoom-in-95 flex flex-col h-[80vh]">
-      <div className="p-6 pb-2 border-b border-slate-100">
+    <main className="w-full max-w-md bg-white dark:bg-slate-900 rounded-2xl shadow-xl overflow-hidden border border-slate-100 dark:border-slate-800 animate-in fade-in zoom-in-95 flex flex-col h-[80vh] transition-colors duration-300">
+      <div className="p-6 pb-2 border-b border-slate-100 dark:border-slate-800">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl font-bold text-slate-800 flex items-center gap-2">
-            <Settings size={20} className="text-blue-600"/>
+          <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
+            <Settings size={20} className="text-blue-600 dark:text-blue-400"/>
             Practice Settings
           </h2>
           {/* Close Button - Hidden if no exercises exist to prevent empty state */}
           {exercises.length > 0 && (
-            <button onClick={() => setView('practice')} className="text-slate-400 hover:text-slate-600">
+            <button onClick={() => setView('practice')} className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
               <X size={24} />
             </button>
           )}
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-6 space-y-8">
+      <div className="flex-1 overflow-y-auto p-6 space-y-8 custom-scrollbar">
         {/* Tenses Selection */}
         <div>
-          <div className="flex justify-between items-end mb-3 sticky top-0 bg-white z-10 pb-2">
-             <label className="text-sm font-bold text-slate-700 uppercase tracking-wide">Tenses</label>
-             <div className="flex gap-2 text-xs">
-                <button onClick={selectAllTenses} className="text-blue-600 hover:underline">All</button>
-                <span className="text-slate-300">|</span>
-                <button onClick={selectNoTenses} className="text-blue-600 hover:underline">None</button>
-             </div>
+          <div className="flex justify-between items-end mb-3 sticky top-0 bg-white dark:bg-slate-900 z-10 pb-2 transition-colors">
+              <label className="text-sm font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wide">Tenses</label>
+              <div className="flex gap-2 text-xs">
+                 <button onClick={selectAllTenses} className="text-blue-600 dark:text-blue-400 hover:underline">All</button>
+                 <span className="text-slate-300 dark:text-slate-600">|</span>
+                 <button onClick={selectNoTenses} className="text-blue-600 dark:text-blue-400 hover:underline">None</button>
+              </div>
           </div>
           <div className="flex flex-wrap gap-2">
             {ALL_TENSES.map(tense => (
@@ -987,8 +999,8 @@ const ConjugationApp = () => {
                 onClick={() => toggleTense(tense)}
                 className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
                   selectedTenses.includes(tense) 
-                    ? 'bg-blue-100 text-blue-700 ring-2 ring-blue-500 ring-offset-1' 
-                    : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
+                    ? 'bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-200 ring-2 ring-blue-500 dark:ring-blue-600 ring-offset-1 dark:ring-offset-slate-900' 
+                    : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'
                 }`}
               >
                 {tense}
@@ -999,34 +1011,34 @@ const ConjugationApp = () => {
 
         {/* Verbs Selection */}
         <div>
-          <div className="flex flex-col gap-2 mb-3 sticky top-0 bg-white z-10 pb-2">
-             <div className="flex justify-between items-end">
-                <label className="text-sm font-bold text-slate-700 uppercase tracking-wide">
-                    Verbs <span className="text-blue-600 ml-1 text-xs normal-case">({selectedVerbs.length} selected)</span>
-                </label>
-                <div className="flex gap-2 text-xs">
-                    <button onClick={selectAllVerbs} className="text-blue-600 hover:underline">All</button>
-                    <span className="text-slate-300">|</span>
-                    <button onClick={selectNoVerbs} className="text-blue-600 hover:underline">None</button>
-                </div>
-             </div>
-             
-             {/* Search Bar */}
-             <div className="relative">
+          <div className="flex flex-col gap-2 mb-3 sticky top-0 bg-white dark:bg-slate-900 z-10 pb-2 transition-colors">
+              <div className="flex justify-between items-end">
+                 <label className="text-sm font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wide">
+                    Verbs <span className="text-blue-600 dark:text-blue-400 ml-1 text-xs normal-case">({selectedVerbs.length} selected)</span>
+                 </label>
+                 <div className="flex gap-2 text-xs">
+                    <button onClick={selectAllVerbs} className="text-blue-600 dark:text-blue-400 hover:underline">All</button>
+                    <span className="text-slate-300 dark:text-slate-600">|</span>
+                    <button onClick={selectNoVerbs} className="text-blue-600 dark:text-blue-400 hover:underline">None</button>
+                 </div>
+              </div>
+              
+              {/* Search Bar */}
+              <div className="relative">
                 <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
                 <input 
                   type="text" 
                   placeholder="Search verbs..." 
                   value={verbSearchTerm}
                   onChange={(e) => setVerbSearchTerm(e.target.value)}
-                  className="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full pl-9 pr-4 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors placeholder:text-slate-400"
                 />
-             </div>
+              </div>
           </div>
 
           <div className="flex flex-wrap gap-2">
             {verbSearchTerm.trim() === "" ? (
-                <div className="w-full py-8 text-center border-2 border-dashed border-slate-100 rounded-xl text-slate-400 text-sm">
+                <div className="w-full py-8 text-center border-2 border-dashed border-slate-100 dark:border-slate-800 rounded-xl text-slate-400 dark:text-slate-500 text-sm">
                     <Search size={24} className="mx-auto mb-2 opacity-50" />
                     <p>Type above to find verbs</p>
                 </div>
@@ -1037,8 +1049,8 @@ const ConjugationApp = () => {
                     onClick={() => toggleVerb(verb)}
                     className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
                       selectedVerbs.includes(verb) 
-                        ? 'bg-emerald-100 text-emerald-700 ring-2 ring-emerald-500 ring-offset-1' 
-                        : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
+                        ? 'bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-200 ring-2 ring-emerald-500 dark:ring-emerald-600 ring-offset-1 dark:ring-offset-slate-900' 
+                        : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'
                     }`}
                   >
                     {verb}
@@ -1046,15 +1058,15 @@ const ConjugationApp = () => {
                 ))
             )}
             {verbSearchTerm.trim() !== "" && ALL_VERBS.filter(v => v.toLowerCase().includes(verbSearchTerm.toLowerCase())).length === 0 && (
-                <p className="text-xs text-slate-400 w-full text-center py-4">No verbs found matching "{verbSearchTerm}"</p>
+                <p className="text-xs text-slate-400 dark:text-slate-500 w-full text-center py-4">No verbs found matching "{verbSearchTerm}"</p>
             )}
           </div>
         </div>
       </div>
 
-      <div className="p-6 border-t border-slate-100 bg-slate-50/50">
+      <div className="p-6 border-t border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
         {apiError && (
-          <div className="mb-4 p-3 bg-red-50 text-red-600 text-sm rounded-lg flex items-start gap-2">
+          <div className="mb-4 p-3 bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-300 text-sm rounded-lg flex items-start gap-2 border border-red-100 dark:border-red-800">
             <AlertCircle size={16} className="mt-0.5 shrink-0" />
             <p>{apiError}</p>
           </div>
@@ -1063,7 +1075,7 @@ const ConjugationApp = () => {
         <button 
           onClick={() => handleLoadExercises(false)}
           disabled={isFetching || selectedTenses.length === 0 || selectedVerbs.length === 0}
-          className="w-full py-4 bg-blue-600 hover:bg-blue-700 disabled:bg-slate-300 disabled:cursor-not-allowed text-white rounded-xl font-bold shadow-lg transition-all flex items-center justify-center gap-2"
+          className="w-full py-4 bg-blue-600 hover:bg-blue-700 disabled:bg-slate-300 dark:disabled:bg-slate-700 disabled:cursor-not-allowed text-white rounded-xl font-bold shadow-lg transition-all flex items-center justify-center gap-2"
         >
           {isFetching ? (
             <Loader2 size={20} className="animate-spin" />
@@ -1077,41 +1089,70 @@ const ConjugationApp = () => {
   );
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans text-slate-900 flex flex-col items-center py-8 px-4">
-      {/* Header */}
-      <header className="w-full max-w-md flex justify-between items-center mb-8">
-        <div className="flex items-center gap-2">
-          <div className="bg-blue-600 text-white p-2 rounded-lg shadow-sm">
-            <BookOpen size={24} />
+    // Wrap entire app in a div that toggles 'dark' class
+    <div className={isDarkMode ? "dark" : ""}>
+      <div className="min-h-screen bg-slate-50 dark:bg-slate-950 font-sans text-slate-900 dark:text-slate-100 flex flex-col items-center py-8 px-4 transition-colors duration-300">
+        {/* Header */}
+        <header className="w-full max-w-md flex justify-between items-center mb-8">
+          <div className="flex items-center gap-2">
+            <div className="bg-blue-600 text-white p-2 rounded-lg shadow-sm">
+              <BookOpen size={24} />
+            </div>
+            <div>
+              <h1 className="font-bold text-lg leading-tight text-slate-900 dark:text-white">Verb Master</h1>
+              <p className="text-xs text-slate-500 dark:text-slate-400">Practice English Verbs</p>
+            </div>
           </div>
-          <div>
-            <h1 className="font-bold text-lg leading-tight">Verb Master</h1>
-            <p className="text-xs text-slate-500">Practice English Verbs</p>
-          </div>
-        </div>
-        
-        <div className="flex gap-3">
-          <div className="flex flex-col items-end">
-            <span className="text-xs text-slate-400 font-bold uppercase tracking-wider">Score</span>
-            <span className="font-mono font-bold text-blue-600">{score}</span>
-          </div>
-          <div className="flex flex-col items-end">
-             <span className="text-xs text-slate-400 font-bold uppercase tracking-wider">Racha</span>
-             <div className="flex items-center gap-1 text-orange-500 font-bold">
-               <Trophy size={14} />
-               <span>{streak}</span>
+          
+          <div className="flex items-center gap-4">
+             <div className="hidden sm:flex gap-3">
+               <div className="flex flex-col items-end">
+                 <span className="text-xs text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider">Score</span>
+                 <span className="font-mono font-bold text-blue-600 dark:text-blue-400">{score}</span>
+               </div>
+               <div className="flex flex-col items-end">
+                   <span className="text-xs text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider">Racha</span>
+                   <div className="flex items-center gap-1 text-orange-500 dark:text-orange-400 font-bold">
+                     <Trophy size={14} />
+                     <span>{streak}</span>
+                   </div>
+               </div>
              </div>
+
+             {/* Dark Mode Toggle */}
+             <button 
+               onClick={toggleTheme}
+               className="p-2 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors"
+               aria-label="Toggle Dark Mode"
+             >
+               {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+             </button>
           </div>
+        </header>
+
+        {/* Mobile Stat Bar (Visible only on small screens) */}
+        <div className="sm:hidden w-full max-w-md flex justify-between mb-6 px-4 py-3 bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800">
+             <div className="flex items-center gap-2">
+                 <span className="text-xs text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider">Score</span>
+                 <span className="font-mono font-bold text-blue-600 dark:text-blue-400">{score}</span>
+             </div>
+             <div className="flex items-center gap-2">
+                 <span className="text-xs text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider">Racha</span>
+                 <div className="flex items-center gap-1 text-orange-500 dark:text-orange-400 font-bold">
+                   <Trophy size={14} />
+                   <span>{streak}</span>
+                 </div>
+             </div>
         </div>
-      </header>
 
-      {/* Main Content Switcher */}
-      {view === 'practice' && renderPracticeView()}
-      {view === 'settings' && renderSettingsView()}
-      {view === 'summary' && renderSummaryView()}
+        {/* Main Content Switcher */}
+        {view === 'practice' && renderPracticeView()}
+        {view === 'settings' && renderSettingsView()}
+        {view === 'summary' && renderSummaryView()}
 
-      <div className="mt-8 text-slate-400 text-sm max-w-xs text-center">
-        Created for Spanish speakers learning English. <br/> Data provided by Tatoeba.org
+        <div className="mt-8 text-slate-400 dark:text-slate-600 text-sm max-w-xs text-center transition-colors">
+          Created for Spanish speakers learning English. <br/> Data provided by Tatoeba.org
+        </div>
       </div>
     </div>
   );
