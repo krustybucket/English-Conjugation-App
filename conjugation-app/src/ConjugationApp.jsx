@@ -1,12 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Check, ArrowRight, RefreshCw, BookOpen, Trophy, AlertCircle, Sparkles, Globe, Loader2, Settings, Sliders, X, Filter, Search, Zap, Moon, Sun } from 'lucide-react';
+import { Check, ArrowRight, RefreshCw, BookOpen, Trophy, AlertCircle, Sparkles, Globe, Loader2, Settings, Sliders, X, Filter, Search, Zap, Moon, Sun, MessageCircleQuestion, FileText } from 'lucide-react';
 
 // --- DATA & PATTERN GENERATION ---
 
 // Helper to generate regular verb forms automatically
-// Now accepts optional object context (e.g., "the car", "el coche")
 const createRegularVerb = (english, spanish, obj = "", objSpa = "") => {
-  // Strip "To " if present to ensure clean base
   const cleanEnglish = english.replace(/^To\s+/i, "").trim();
   const base = cleanEnglish.toLowerCase();
   
@@ -15,7 +13,16 @@ const createRegularVerb = (english, spanish, obj = "", objSpa = "") => {
   let ing = base + "ing";
   let s = base + "s";
 
-  // Basic Heuristic Rules for Regular Verbs
+  // Simple heuristic for CVC doubling (e.g., stop -> stopping, prefer -> preferring)
+  const isCVC = (str) => /[^aeiou][aeiou][b-df-hj-np-tv-z]$/.test(str);
+  const shouldDouble = (str) => {
+      // Always double for short CVC words (stop, plan)
+      if (str.length <= 4 && isCVC(str)) return true;
+      // Double for specific multi-syllable verbs ending in CVC with stress on last syllable
+      if (['fer', 'cur', 'mit', 'pel'].some(end => str.endsWith(end))) return true;
+      return false;
+  };
+
   if (base.endsWith("e")) {
     past = base + "d";
     pp = base + "d";
@@ -24,14 +31,18 @@ const createRegularVerb = (english, spanish, obj = "", objSpa = "") => {
     past = base.slice(0, -1) + "ied";
     pp = base.slice(0, -1) + "ied";
     s = base.slice(0, -1) + "ies";
-  } 
+  } else if (shouldDouble(base)) {
+    const lastChar = base.slice(-1);
+    past = base + lastChar + "ed";
+    pp = base + lastChar + "ed";
+    ing = base + lastChar + "ing";
+  }
   
   return { inf: `To ${cleanEnglish}`, spa: spanish, base, past, pp, ing, s, obj, objSpa };
 };
 
-// 1. Irregular Verbs (Expanded with objects for transitive verbs)
+// 1. Irregular Verbs
 const IRREGULAR_VERBS = [
-  // Essentials & Common
   { inf: "To Be", spa: "Ser/Estar", base: "be", past: "was", pp: "been", ing: "being", s: "is" },
   { inf: "To Have", spa: "Tener", base: "have", past: "had", pp: "had", ing: "having", s: "has" },
   { inf: "To Do", spa: "Hacer", base: "do", past: "did", pp: "done", ing: "doing", s: "does", obj: "the work", objSpa: "el trabajo" },
@@ -50,8 +61,6 @@ const IRREGULAR_VERBS = [
   { inf: "To Give", spa: "Dar", base: "give", past: "gave", pp: "given", ing: "giving", s: "gives", obj: "a gift", objSpa: "un regalo" },
   { inf: "To Tell", spa: "Contar", base: "tell", past: "told", pp: "told", ing: "telling", s: "tells", obj: "a story", objSpa: "una historia" },
   { inf: "To Work", spa: "Trabajar", base: "work", past: "worked", pp: "worked", ing: "working", s: "works" },
-  
-  // A-Z Irregulars
   { inf: "To Become", spa: "Convertirse", base: "become", past: "became", pp: "become", ing: "becoming", s: "becomes" },
   { inf: "To Begin", spa: "Empezar", base: "begin", past: "began", pp: "begun", ing: "beginning", s: "begins" },
   { inf: "To Bite", spa: "Morder", base: "bite", past: "bit", pp: "bitten", ing: "biting", s: "bites", obj: "the apple", objSpa: "la manzana" },
@@ -141,7 +150,6 @@ const IRREGULAR_VERBS = [
 ];
 
 // 2. Regular Verb List (English, Spanish)
-// Added contexts to common transitive regular verbs
 const REGULAR_LIST = [
   ["Accept", "Aceptar", "the offer", "la oferta"], ["Achieve", "Lograr", "goals", "metas"], ["Act", "Actuar"], 
   ["Add", "Añadir", "sugar", "azúcar"], ["Admire", "Admirar"], ["Admit", "Admitir"], ["Adopt", "Adoptar"], 
@@ -235,7 +243,7 @@ const REGULAR_LIST = [
   ["Zoom", "Acercar"]
 ];
 
-// Combine Irregular and Regular verbs into one master list, filtering out Regular entries that exist in Irregular list
+// Combine Irregular and Regular verbs into one master list
 const FULL_VERB_LIST = [
   ...IRREGULAR_VERBS,
   ...REGULAR_LIST
@@ -320,146 +328,6 @@ const SEARCH_PATTERNS = generatePatterns();
 const ALL_TENSES = [...new Set(SEARCH_PATTERNS.map(p => p.tense))].sort();
 const ALL_VERBS = [...new Set(SEARCH_PATTERNS.map(p => p.verb))].sort();
 
-// --- FALLBACK SENTENCE GENERATOR ---
-const SENTENCE_TEMPLATES = {
-  "Present Simple": [
-    { eng: "I {base} {obj} every single day.", spa: "Yo {spa} {objSpa} cada día.", ans: "{base}" },
-    { eng: "She {s} {obj} very well.", spa: "Ella {spa} {objSpa} muy bien.", ans: "{s}" },
-    { eng: "They {base} {obj} on weekends.", spa: "Ellos {spa} {objSpa} los fines de semana.", ans: "{base}" },
-    { eng: "We {base} {obj} together.", spa: "Nosotros {spa} {objSpa} juntos.", ans: "{base}" },
-    { eng: "He always {s} {obj} before breakfast.", spa: "Él siempre {spa} {objSpa} antes del desayuno.", ans: "{s}" },
-    { eng: "You {base} {obj} so much.", spa: "Tú {spa} {objSpa} tanto.", ans: "{base}" }
-  ],
-  "Present Continuous": [
-    { eng: "I am {ing} {obj} right now.", spa: "Estoy {ingSpa} {objSpa} ahora mismo.", ans: "am {ing}" },
-    { eng: "She is {ing} {obj} today.", spa: "Ella está {ingSpa} {objSpa} hoy.", ans: "is {ing}" },
-    { eng: "We are {ing} {obj} today.", spa: "Estamos {ingSpa} {objSpa} hoy.", ans: "are {ing}" },
-    { eng: "They are {ing} {obj} outside.", spa: "Ellos están {ingSpa} {objSpa} afuera.", ans: "are {ing}" },
-    { eng: "He is {ing} {obj} quickly.", spa: "Él está {ingSpa} {objSpa} rápidamente.", ans: "is {ing}" },
-    { eng: "You are {ing} {obj} slowly.", spa: "Estás {ingSpa} {objSpa} despacio.", ans: "are {ing}" }
-  ],
-  "Present Perfect": [
-    { eng: "I have {pp} {obj} already.", spa: "Ya he {ppSpa} {objSpa}.", ans: "have {pp}" },
-    { eng: "He has {pp} {obj} recently.", spa: "Él ha {ppSpa} {objSpa} recientemente.", ans: "has {pp}" },
-    { eng: "We have {pp} {obj} before.", spa: "Hemos {ppSpa} {objSpa} antes.", ans: "have {pp}" },
-    { eng: "They have {pp} {obj} just now.", spa: "Ellos han {ppSpa} {objSpa} justo ahora.", ans: "have {pp}" },
-    { eng: "She has {pp} {obj} twice.", spa: "Ella ha {ppSpa} {objSpa} dos veces.", ans: "has {pp}" }, 
-    { eng: "You have {pp} {obj} enough.", spa: "Has {ppSpa} {objSpa} suficiente.", ans: "have {pp}" }
-  ],
-  "Present Perfect Continuous": [
-    { eng: "I have been {ing} {obj} for two hours.", spa: "He estado {ingSpa} {objSpa} por dos horas.", ans: "have been {ing}" },
-    { eng: "She has been {ing} {obj} since morning.", spa: "Ella ha estado {ingSpa} {objSpa} desde la mañana.", ans: "has been {ing}" },
-    { eng: "We have been {ing} {obj} all day.", spa: "Hemos estado {ingSpa} {objSpa} todo el día.", ans: "have been {ing}" },
-    { eng: "They have been {ing} {obj} lately.", spa: "Ellos han estado {ingSpa} {objSpa} últimamente.", ans: "have been {ing}" },
-    { eng: "He has been {ing} {obj} non-stop.", spa: "Él ha estado {ingSpa} {objSpa} sin parar.", ans: "has been {ing}" }
-  ],
-  "Past Simple": [
-    { eng: "I {past} {obj} yesterday.", spa: "Yo {pastSpa} {objSpa} ayer.", ans: "{past}" },
-    { eng: "They {past} {obj} last week.", spa: "Ellos {pastSpa} {objSpa} la semana pasada.", ans: "{past}" },
-    { eng: "She {past} {obj} suddenly.", spa: "Ella {pastSpa} {objSpa} de repente.", ans: "{past}" },
-    { eng: "We {past} {obj} together.", spa: "Nosotros {pastSpa} {objSpa} juntos.", ans: "{past}" },
-    { eng: "He {past} {obj} slowly.", spa: "Él {pastSpa} {objSpa} despacio.", ans: "{past}" },
-    { eng: "You {past} {obj} that time.", spa: "Tú {pastSpa} {objSpa} esa vez.", ans: "{past}" }
-  ],
-  "Past Continuous": [
-    { eng: "I was {ing} {obj} when you called.", spa: "Estaba {ingSpa} {objSpa} cuando llamaste.", ans: "was {ing}" },
-    { eng: "They were {ing} {obj} all night.", spa: "Ellos estaban {ingSpa} {objSpa} toda la noche.", ans: "were {ing}" },
-    { eng: "She was {ing} {obj} then.", spa: "Ella estaba {ingSpa} {objSpa} entonces.", ans: "was {ing}" },
-    { eng: "We were {ing} {obj} at that time.", spa: "Estábamos {ingSpa} {objSpa} en ese momento.", ans: "were {ing}" },
-    { eng: "He was {ing} {obj} while waiting.", spa: "Él estaba {ingSpa} {objSpa} mientras esperaba.", ans: "was {ing}" }
-  ],
-  "Past Perfect": [
-    { eng: "I had {pp} {obj} before leaving.", spa: "Había {ppSpa} {objSpa} antes de salir.", ans: "had {pp}" },
-    { eng: "She had {pp} {obj} by then.", spa: "Ella había {ppSpa} {objSpa} para entonces.", ans: "had {pp}" },
-    { eng: "They had {pp} {obj} already.", spa: "Ellos ya habían {ppSpa} {objSpa}.", ans: "had {pp}" },
-    { eng: "We had {pp} {obj} earlier.", spa: "Habíamos {ppSpa} {objSpa} más temprano.", ans: "had {pp}" }
-  ],
-  "Past Perfect Continuous": [
-    { eng: "We had been {ing} {obj} for a long time.", spa: "Habíamos estado {ingSpa} {objSpa} por mucho tiempo.", ans: "had been {ing}" },
-    { eng: "He had been {ing} {obj} before stopping.", spa: "Él había estado {ingSpa} {objSpa} antes de parar.", ans: "had been {ing}" },
-    { eng: "I had been {ing} {obj} until noon.", spa: "Yo había estado {ingSpa} {objSpa} hasta el mediodía.", ans: "had been {ing}" }
-  ],
-  "Future Simple": [
-    { eng: "I will {base} {obj} tomorrow.", spa: "{infSpa} {objSpa} mañana.", ans: "will {base}" },
-    { eng: "It will {base} {obj} soon.", spa: "{infSpa} {objSpa} pronto.", ans: "will {base}" },
-    { eng: "They will {base} {obj} later.", spa: "Ellos {infSpa} {objSpa} más tarde.", ans: "will {base}" },
-    { eng: "We will {base} {obj} next year.", spa: "Nosotros {infSpa} {objSpa} el próximo año.", ans: "will {base}" },
-    { eng: "She will {base} {obj} definitely.", spa: "Ella {infSpa} {objSpa} definitivamente.", ans: "will {base}" }
-  ],
-  "Future Continuous": [
-    { eng: "I will be {ing} {obj} at 8 PM.", spa: "Estaré {ingSpa} {objSpa} a las 8 PM.", ans: "will be {ing}" },
-    { eng: "They will be {ing} {obj} all day.", spa: "Ellos estarán {ingSpa} {objSpa} todo el día.", ans: "will be {ing}" },
-    { eng: "We will be {ing} {obj} this time tomorrow.", spa: "Estaremos {ingSpa} {objSpa} mañana a esta hora.", ans: "will be {ing}" }
-  ],
-  "Future Perfect": [
-    { eng: "I will have {pp} {obj} by then.", spa: "Habré {ppSpa} {objSpa} para entonces.", ans: "will have {pp}" },
-    { eng: "She will have {pp} {obj} by tomorrow.", spa: "Ella habrá {ppSpa} {objSpa} para mañana.", ans: "will have {pp}" },
-    { eng: "We will have {pp} {obj} soon.", spa: "Habremos {ppSpa} {objSpa} pronto.", ans: "will have {pp}" }
-  ],
-  "Future Perfect Continuous": [
-    { eng: "She will have been {ing} {obj} for years.", spa: "Ella habrá estado {ingSpa} {objSpa} por años.", ans: "will have been {ing}" },
-    { eng: "I will have been {ing} {obj} since Monday.", spa: "Habré estado {ingSpa} {objSpa} desde el lunes.", ans: "will have been {ing}" }
-  ]
-};
-
-const generateFallbackExercise = (verbObj, tense) => {
-  const templates = SENTENCE_TEMPLATES[tense] || SENTENCE_TEMPLATES["Present Simple"];
-  const template = templates[Math.floor(Math.random() * templates.length)];
-  
-  // Fillers for Spanish side (simplified logic for fallback context)
-  const ingSpa = `[${verbObj.spa} (ando/iendo)]`;
-  const ppSpa = `[${verbObj.spa} (ado/ido)]`; 
-  const pastSpa = `[${verbObj.spa} (pasado)]`;
-  const infSpa = `[${verbObj.spa}]`;
-
-  // Object handling
-  const obj = verbObj.obj ? verbObj.obj : "";
-  const objSpa = verbObj.objSpa ? verbObj.objSpa : "";
-
-  // Replacements
-  let sentence = template.eng
-    .replace("{base}", verbObj.base)
-    .replace("{s}", verbObj.s)
-    .replace("{past}", verbObj.past)
-    .replace("{pp}", verbObj.pp)
-    .replace("{ing}", verbObj.ing)
-    .replace("{obj}", obj); // Inject object if present
-
-  let answer = template.ans
-    .replace("{base}", verbObj.base)
-    .replace("{s}", verbObj.s)
-    .replace("{past}", verbObj.past)
-    .replace("{pp}", verbObj.pp)
-    .replace("{ing}", verbObj.ing);
-
-  let spanishSentence = template.spa
-    .replace("{spa}", `[${verbObj.spa}]`)
-    .replace("{ingSpa}", ingSpa)
-    .replace("{ppSpa}", ppSpa)
-    .replace("{pastSpa}", pastSpa)
-    .replace("{infSpa}", infSpa)
-    .replace("{objSpa}", objSpa); // Inject spanish object
-
-  // Cleanup extra spaces if object was empty
-  sentence = sentence.replace(/\s+/g, ' ').trim();
-  spanishSentence = spanishSentence.replace(/\s+/g, ' ').trim();
-
-  // Split English sentence for the UI gap
-  const parts = sentence.split(answer);
-  const sentenceParts = parts.length >= 2 ? [parts[0], parts[1]] : ["", " " + sentence.replace(answer, "").trim()];
-
-  return {
-    id: `fallback-${Date.now()}-${Math.random()}`,
-    verb: verbObj.inf,
-    spanishVerb: verbObj.spa,
-    tense: tense,
-    sentenceParts: sentenceParts,
-    spanishSentence: spanishSentence,
-    answer: answer,
-    hint: `The answer is '${answer}'`
-  };
-};
-
 const ConjugationApp = () => {
   // State
   const [exercises, setExercises] = useState([]); // Active exercises
@@ -481,6 +349,14 @@ const ConjugationApp = () => {
   // Theme State
   const [isDarkMode, setIsDarkMode] = useState(false);
 
+  // AI Feature States
+  const [isExplaining, setIsExplaining] = useState(false);
+  const [explanation, setExplanation] = useState(null);
+  const [isGeneratingStory, setIsGeneratingStory] = useState(false);
+  const [story, setStory] = useState(null);
+
+  const apiKey = ""; // Provided by environment
+
   // Initialize theme based on system preference
   useEffect(() => {
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -494,6 +370,7 @@ const ConjugationApp = () => {
   const [selectedTenses, setSelectedTenses] = useState([]);
   const [selectedVerbs, setSelectedVerbs] = useState([]);
   const [verbSearchTerm, setVerbSearchTerm] = useState("");
+  const [batchSize, setBatchSize] = useState(5);
 
   const inputRef = useRef(null);
   const currentExercise = exercises[currentExerciseIndex];
@@ -504,6 +381,11 @@ const ConjugationApp = () => {
       inputRef.current.focus();
     }
   }, [currentExerciseIndex, view]);
+
+  // Reset explanation when moving to next exercise
+  useEffect(() => {
+    setExplanation(null);
+  }, [currentExerciseIndex]);
 
   // --- BACKGROUND PREFETCHING LOGIC ---
   useEffect(() => {
@@ -517,7 +399,7 @@ const ConjugationApp = () => {
   const prefetchNextRound = async () => {
     setIsPrefetching(true);
     try {
-      const newBatch = await getExercises(5, selectedTenses, selectedVerbs);
+      const newBatch = await getExercises(batchSize, selectedTenses, selectedVerbs);
       if (newBatch && newBatch.length > 0) {
         setPrefetchedExercises(newBatch);
       }
@@ -563,6 +445,165 @@ const ConjugationApp = () => {
   const handleRetry = () => {
     setStatus("idle");
     inputRef.current.focus();
+  };
+
+  // --- GEMINI API FUNCTIONS ---
+
+  const explainGrammar = async () => {
+    if (!currentExercise) return;
+    
+    setIsExplaining(true);
+    setExplanation(null);
+
+    const fullSentence = `${currentExercise.sentenceParts[0]}${currentExercise.answer}${currentExercise.sentenceParts[1]}`;
+    
+    try {
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [{ 
+            parts: [{ 
+              text: `Act as an English teacher for Spanish speakers. Explain briefly in Spanish the grammatical rule for using "${currentExercise.answer}" in the sentence "${fullSentence}". The verb is "${currentExercise.verb}" and the tense is "${currentExercise.tense}". Keep the explanation simple, concise (max 2-3 sentences), and helpful.` 
+            }] 
+          }]
+        })
+      });
+
+      if (!response.ok) throw new Error("Failed to fetch explanation");
+      
+      const data = await response.json();
+      const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+      
+      if (text) {
+        setExplanation(text);
+      } else {
+        setExplanation("Lo siento, no pude generar una explicación en este momento.");
+      }
+    } catch (error) {
+      console.error("Explanation error:", error);
+      setExplanation("Error de conexión. Inténtalo de nuevo.");
+    } finally {
+      setIsExplaining(false);
+    }
+  };
+
+  const generateStory = async () => {
+    if (exercises.length === 0) return;
+    
+    setIsGeneratingStory(true);
+    setStory(null);
+
+    const verbList = exercises.map(e => e.verb).join(', ');
+
+    try {
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [{ 
+            parts: [{ 
+              text: `Write a very short, simple story (max 100 words) in English using these verbs: ${verbList}. After the story, provide a Spanish translation.` 
+            }] 
+          }]
+        })
+      });
+
+      if (!response.ok) throw new Error("Failed to generate story");
+      
+      const data = await response.json();
+      const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+      
+      if (text) {
+        setStory(text);
+      } else {
+        setStory("Lo siento, no pude generar la historia.");
+      }
+    } catch (error) {
+      console.error("Story error:", error);
+      setStory("Error de conexión.");
+    } finally {
+      setIsGeneratingStory(false);
+    }
+  };
+
+  // Helper to fetch Gemini generated exercises
+  const fetchGeminiExercises = async (patterns) => {
+    if (!apiKey && typeof apiKey !== 'string') return [];
+    
+    // Prepare input list for the prompt
+    const requestList = patterns.map(p => JSON.stringify({
+      verb: p.verb,
+      tense: p.tense,
+      spanishVerb: p.spanishVerb
+    })).join(',\n');
+    
+    const prompt = `
+      You are an English language teacher. Generate ${patterns.length} unique practice exercises based on the input list below.
+      
+      Input Data:
+      ${requestList}
+      
+      Instructions:
+      1. For each item, create a **coherent, natural, everyday English sentence** that correctly uses the specified 'verb' in the specified 'tense'.
+      2. The sentences should make sense in a real-world context. Avoid robotic or disjointed phrases.
+      3. IMPORTANT: Enclose the specific conjugated verb phrase (the answer key) in square brackets []. 
+         - Example (Past Simple, To Eat): "I [ate] an apple for lunch because I was hungry."
+         - Example (Present Perfect, To Go): "She [has gone] to the store, so she isn't here right now."
+         - Example (Present Continuous, To Prefer): "She [is preferring] tea over coffee these days."
+      4. Provide a natural Spanish translation for each sentence.
+      
+      Return a JSON ARRAY of objects with this exact schema:
+      {
+        "verb": "To Eat",
+        "tense": "Past Simple",
+        "spanishVerb": "Comer",
+        "english_masked": "I [ate] an apple for lunch.",
+        "spanish": "Me comí una manzana para el almuerzo."
+      }
+    `;
+
+    try {
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: prompt }] }],
+          generationConfig: { responseMimeType: "application/json" }
+        })
+      });
+
+      if (!response.ok) return [];
+
+      const data = await response.json();
+      const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+      if (!text) return [];
+      
+      const json = JSON.parse(text);
+      if (!Array.isArray(json)) return [];
+
+      return json.map(item => {
+        // Parse "I [ate] the apple" -> part1: "I ", answer: "ate", part2: " the apple"
+        const match = item.english_masked && item.english_masked.match ? item.english_masked.match(/^(.*?)\[(.*?)\](.*)$/) : null;
+        
+        if (!match) return null;
+        
+        return {
+          id: `gemini-${Date.now()}-${Math.random()}`,
+          verb: item.verb,
+          spanishVerb: item.spanishVerb,
+          tense: item.tense,
+          sentenceParts: [match[1], match[3]], 
+          spanishSentence: item.spanish,
+          answer: match[2], 
+          hint: `The answer is '${match[2]}' (AI Generated)`
+        };
+      }).filter(i => i !== null);
+
+    } catch (e) {
+      console.warn("Gemini generation failed.", e);
+      return [];
+    }
   };
 
   // Toggle helpers
@@ -715,23 +756,25 @@ const ConjugationApp = () => {
       }
     }
 
-    // Fallback Generator
-    let attempts = 0;
-    const maxAttempts = targetCount * 10; 
-
-    while (resultsContainer.length < targetCount && attempts < maxAttempts) {
-      attempts++;
-      
-      const randomPattern = eligiblePatterns[Math.floor(Math.random() * eligiblePatterns.length)];
-      const verbObj = FULL_VERB_LIST.find(v => v.inf === randomPattern.verb);
-      
-      if (verbObj) {
-        const generated = generateFallbackExercise(verbObj, randomPattern.tense);
-        if (!seenSentences.has(generated.spanishSentence)) {
-            resultsContainer.push(generated);
-            seenSentences.add(generated.spanishSentence);
-        }
-      }
+    // NEW STEP: Gemini Fallback
+    let needed = targetCount - resultsContainer.length;
+    if (needed > 0) {
+       const geminiPatterns = [];
+       for(let i=0; i<needed; i++) {
+          const randomPattern = shuffledPatterns[Math.floor(Math.random() * shuffledPatterns.length)];
+          if (randomPattern) geminiPatterns.push(randomPattern);
+       }
+       
+       if (geminiPatterns.length > 0) {
+         const aiExercises = await fetchGeminiExercises(geminiPatterns);
+         
+         for (const ex of aiExercises) {
+            if (resultsContainer.length < targetCount && !seenSentences.has(ex.spanishSentence)) {
+               resultsContainer.push(ex);
+               seenSentences.add(ex.spanishSentence);
+            }
+         }
+       }
     }
 
     return resultsContainer;
@@ -746,14 +789,21 @@ const ConjugationApp = () => {
       setUserInput("");
       setStatus("idle");
       setView('practice');
+      setStory(null); // Clear previous story
       return;
     }
 
     setIsFetching(true);
     setApiError(null);
+    setStory(null);
 
     try {
-      const newExercises = await getExercises(5, selectedTenses, selectedVerbs);
+      const newExercises = await getExercises(batchSize, selectedTenses, selectedVerbs);
+      
+      if (newExercises.length === 0) {
+        throw new Error("Could not find any exercises. Please try selecting different verbs or tenses.");
+      }
+
       setExercises(newExercises);
       setPrefetchedExercises([]); 
       setCurrentExerciseIndex(0);
@@ -772,7 +822,7 @@ const ConjugationApp = () => {
   // Render Practice View
   const renderPracticeView = () => {
     if (!currentExercise) return null;
-    const isFallback = currentExercise.id.toString().startsWith('fallback');
+    const isGemini = currentExercise.id.toString().startsWith('gemini');
 
     return (
       <main className={`w-full max-w-md rounded-2xl shadow-xl overflow-hidden border relative transition-colors duration-300 ${isDarkMode ? 'bg-slate-900 border-slate-800' : 'bg-white border-slate-100'}`}>
@@ -800,10 +850,10 @@ const ConjugationApp = () => {
             <h2 className={`text-3xl font-bold mb-1 ${isDarkMode ? 'text-slate-100' : 'text-slate-800'}`}>{currentExercise.verb}</h2>
             <p className={`text-lg italic mb-2 ${isDarkMode ? 'text-slate-400' : 'text-slate-500'}`}>{currentExercise.spanishVerb}</p>
             
-            {isFallback && (
+            {(isGemini) && (
                <div className="mb-2 flex justify-center">
                  <span className={`text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full flex items-center gap-1 ${isDarkMode ? 'bg-orange-900/30 text-orange-300' : 'bg-orange-100 text-orange-600'}`}>
-                   <Zap size={10} fill="currentColor" /> Generated
+                   <Zap size={10} fill="currentColor" /> AI Generated
                  </span>
                </div>
             )}
@@ -855,6 +905,42 @@ const ConjugationApp = () => {
               </div>
             )}
           </form>
+
+          {/* Explanation Area (Gemini Integration) */}
+          {status !== 'idle' && (
+            <div className="mb-6 animate-in fade-in slide-in-from-top-2">
+              {!explanation ? (
+                <button 
+                  onClick={explainGrammar}
+                  disabled={isExplaining}
+                  className={`w-full py-2 px-4 rounded-lg border flex items-center justify-center gap-2 text-sm font-medium transition-colors
+                    ${isDarkMode 
+                      ? 'border-indigo-800 bg-indigo-900/20 text-indigo-300 hover:bg-indigo-900/40' 
+                      : 'border-indigo-100 bg-indigo-50 text-indigo-600 hover:bg-indigo-100'
+                    }`}
+                >
+                  {isExplaining ? (
+                    <>
+                      <Loader2 size={16} className="animate-spin" />
+                      Generando explicación...
+                    </>
+                  ) : (
+                    <>
+                      <MessageCircleQuestion size={16} />
+                      ✨ Explicar Gramática (AI)
+                    </>
+                  )}
+                </button>
+              ) : (
+                <div className={`p-4 rounded-lg border text-sm text-left leading-relaxed ${isDarkMode ? 'bg-indigo-950/30 border-indigo-800 text-indigo-200' : 'bg-indigo-50 border-indigo-100 text-indigo-800'}`}>
+                  <div className="flex items-start gap-2">
+                    <Sparkles size={16} className="shrink-0 mt-0.5 opacity-70" />
+                    <p>{explanation}</p>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
 
           <div className="mt-8 h-16"> 
             {status === 'idle' && (
@@ -936,6 +1022,40 @@ const ConjugationApp = () => {
         </div>
       </div>
 
+      {/* Story Generator Feature */}
+      <div className="mb-8">
+        {!story ? (
+          <button 
+            onClick={generateStory}
+            disabled={isGeneratingStory}
+            className={`w-full py-3 px-4 rounded-xl border border-dashed flex items-center justify-center gap-2 text-sm font-medium transition-all
+              ${isDarkMode 
+                ? 'border-purple-700 bg-purple-900/20 text-purple-300 hover:bg-purple-900/40' 
+                : 'border-purple-200 bg-purple-50 text-purple-600 hover:bg-purple-100'
+              }`}
+          >
+            {isGeneratingStory ? (
+              <>
+                <Loader2 size={18} className="animate-spin" />
+                Creando historia...
+              </>
+            ) : (
+              <>
+                <FileText size={18} />
+                ✨ Generar Historia con mis verbos (AI)
+              </>
+            )}
+          </button>
+        ) : (
+          <div className={`p-5 rounded-xl border text-left text-sm leading-relaxed max-h-64 overflow-y-auto custom-scrollbar animate-in fade-in zoom-in-95 ${isDarkMode ? 'bg-purple-950/30 border-purple-800 text-purple-100' : 'bg-purple-50 border-purple-100 text-slate-700'}`}>
+            <h3 className="font-bold mb-2 flex items-center gap-2 text-purple-500">
+              <Sparkles size={16} /> Your Story
+            </h3>
+            <p className="whitespace-pre-wrap">{story}</p>
+          </div>
+        )}
+      </div>
+
       <button 
         onClick={() => handleLoadExercises(true)}
         disabled={isFetching}
@@ -988,6 +1108,28 @@ const ConjugationApp = () => {
       </div>
 
       <div className="flex-1 overflow-y-auto p-6 space-y-8 custom-scrollbar">
+        {/* Batch Size Selection */}
+        <div>
+            <label className={`text-sm font-bold uppercase tracking-wide mb-3 block ${isDarkMode ? 'text-slate-300' : 'text-slate-700'}`}>
+                Questions per Round
+            </label>
+            <div className="flex gap-2">
+                {[5, 10, 15, 20].map(size => (
+                    <button
+                        key={size}
+                        onClick={() => setBatchSize(size)}
+                        className={`flex-1 py-2 rounded-lg text-sm font-medium transition-all ${
+                            batchSize === size
+                                ? (isDarkMode ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/20' : 'bg-blue-600 text-white shadow-lg shadow-blue-200')
+                                : (isDarkMode ? 'bg-slate-800 text-slate-400 hover:bg-slate-700' : 'bg-slate-100 text-slate-500 hover:bg-slate-200')
+                        }`}
+                    >
+                        {size}
+                    </button>
+                ))}
+            </div>
+        </div>
+
         {/* Tenses Selection */}
         <div>
           <div className={`flex justify-between items-end mb-3 sticky top-0 z-10 pb-2 transition-colors ${isDarkMode ? 'bg-slate-900' : 'bg-white'}`}>
@@ -1088,7 +1230,7 @@ const ConjugationApp = () => {
           ) : (
             <Globe size={20} />
           )}
-          <span>{isFetching ? "Searching..." : "Start Practice (5 Sentences)"}</span>
+          <span>{isFetching ? "Searching..." : `Start Practice (${batchSize} Sentences)`}</span>
         </button>
       </div>
     </main>
