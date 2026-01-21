@@ -1,11 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
-import { Check, ArrowRight, RefreshCw, BookOpen, Trophy, AlertCircle, Sparkles, Globe, Loader2, Settings, Sliders, X, Filter, Search, Zap, Moon, Sun, Key } from 'lucide-react';
+import { Check, ArrowRight, RefreshCw, BookOpen, Trophy, AlertCircle, Sparkles, Globe, Loader2, Settings, Sliders, X, Filter, Search, Zap, Moon, Sun, Key, Volume2 } from 'lucide-react';
 import { getStaticData } from './data';
-/**
- * ==========================================
- * MAIN APPLICATION
- * ==========================================
- */
+
 
 const ConjugationApp = () => {
   // Load data
@@ -107,12 +103,13 @@ const ConjugationApp = () => {
             resultsContainer.push({
                 id: `custom-${Date.now()}-${Math.random()}`,
                 verb: item.verb,
-                spanishVerb: item.verb, // We don't have explicit translations map anymore, using Verb name
+                spanishVerb: item.verb, // Using Verb name as fallback for title
                 tense: item.tense,
                 sentenceParts: [match[1], match[3]],
                 spanishSentence: item.translation,
                 answer: match[2],
-                hint: `The answer is '${match[2]}'`
+                hint: `The answer is '${match[2]}'`,
+                fullSentence: item.text.replace(/[\[\]]/g, "") // Clean sentence for TTS
             });
             seenSentences.add(item.text);
         }
@@ -170,6 +167,21 @@ const ConjugationApp = () => {
     }
   };
 
+  // --- TTS HELPER ---
+  const speakSentence = (text) => {
+    if ('speechSynthesis' in window) {
+      // Cancel any current speech
+      window.speechSynthesis.cancel();
+      
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'en-US';
+      // Optional: adjust rate or pitch
+      // utterance.rate = 0.9;
+      
+      window.speechSynthesis.speak(utterance);
+    }
+  };
+
   const handleCheck = (e) => {
     e.preventDefault();
     if (!userInput.trim()) return;
@@ -182,6 +194,8 @@ const ConjugationApp = () => {
       setStatus("correct");
       setScore(score + 10);
       setStreak(streak + 1);
+      // Play TTS automatically on success
+      speakSentence(currentExercise.fullSentence);
     } else {
       setStatus("incorrect");
       setStreak(0);
@@ -206,6 +220,24 @@ const ConjugationApp = () => {
     setStatus("idle");
     inputRef.current.focus();
   };
+
+  // --- NEW FEATURE: ENTER KEY NAVIGATION ---
+  // Listen for 'Enter' key when status is 'correct' to trigger Next
+  useEffect(() => {
+    const handleGlobalKeyDown = (e) => {
+      if (status === 'correct' && e.key === 'Enter') {
+        e.preventDefault(); // Prevent default browser behavior
+        handleNext();
+      }
+    };
+
+    window.addEventListener('keydown', handleGlobalKeyDown);
+    
+    // Cleanup listener on unmount or status change
+    return () => {
+      window.removeEventListener('keydown', handleGlobalKeyDown);
+    };
+  }, [status, handleNext]); // Dependencies ensure it uses latest state
 
   // --- VIEWS ---
 
@@ -247,7 +279,24 @@ const ConjugationApp = () => {
           </div>
 
           <form onSubmit={handleCheck} className="mb-6">
-            <div className={`p-6 rounded-xl border text-lg sm:text-xl leading-relaxed text-center shadow-inner transition-colors duration-300 ${isDarkMode ? 'bg-slate-800 border-slate-700 text-slate-200' : 'bg-slate-50 border-slate-200 text-slate-800'}`}>
+            <div className={`p-6 rounded-xl border text-lg sm:text-xl leading-relaxed text-center shadow-inner transition-colors duration-300 relative ${isDarkMode ? 'bg-slate-800 border-slate-700 text-slate-200' : 'bg-slate-50 border-slate-200 text-slate-800'}`}>
+              
+              {/* TTS Button - Only visible when not idle (answer revealed) */}
+              {status !== 'idle' && (
+                <button
+                  type="button"
+                  onClick={() => speakSentence(currentExercise.fullSentence)}
+                  className={`absolute top-2 right-2 p-1.5 rounded-full transition-colors ${
+                    isDarkMode 
+                      ? 'text-slate-500 hover:text-blue-400 hover:bg-slate-700' 
+                      : 'text-slate-400 hover:text-blue-600 hover:bg-blue-50'
+                  }`}
+                  title="Listen to sentence"
+                >
+                  <Volume2 size={16} />
+                </button>
+              )}
+
               <span>{currentExercise.sentenceParts[0]} </span>
               <span className="relative inline-block mx-1">
                 <input

@@ -399,7 +399,7 @@ export function getStaticData() {
     {
       verb: "To Be",
       tense: "Future Continuous",
-      text: "[Will] they [be being] monitored during the exam?",
+      text: "Will they [be being] monitored during the exam?",
       translation: "¿Estarán siendo monitoreados durante el examen?",
     },
     {
@@ -1010,7 +1010,7 @@ export function getStaticData() {
     {
       verb: "To Have",
       tense: "Past Perfect Continuous",
-      text: "[Had] you [been having] issues with the internet connection?",
+      text: "Had you [been having] issues with the internet connection?",
       translation:
         "¿Habías estado teniendo problemas con la conexión a internet?",
     },
@@ -1055,7 +1055,7 @@ export function getStaticData() {
     {
       verb: "To Have",
       tense: "Past Perfect Continuous",
-      text: "[Had] we [been having] this discussion before the break?",
+      text: "Had we [been having] this discussion before the break?",
       translation:
         "¿Habíamos estado teniendo esta discusión antes del descanso?",
     },
@@ -1074,7 +1074,7 @@ export function getStaticData() {
     {
       verb: "To Have",
       tense: "Future Simple",
-      text: "[Will] she [have] time to see us tomorrow?",
+      text: "Will she [have] time to see us tomorrow?",
       translation: "¿Tendrá ella tiempo de vernos mañana?",
     },
     {
@@ -1098,7 +1098,7 @@ export function getStaticData() {
     {
       verb: "To Have",
       tense: "Future Simple",
-      text: "[Will] they [have] a car available for us?",
+      text: "Will they [have] a car available for us?",
       translation: "¿Tendrán ellos un coche disponible para nosotros?",
     },
     {
@@ -1110,7 +1110,7 @@ export function getStaticData() {
     {
       verb: "To Have",
       tense: "Future Simple",
-      text: "[Will] I [have] your support in this project?",
+      text: "Will I [have] your support in this project?",
       translation: "¿Tendré tu apoyo en este proyecto?",
     },
     {
@@ -1134,7 +1134,7 @@ export function getStaticData() {
     {
       verb: "To Have",
       tense: "Future Continuous",
-      text: "[Will] she [be having] a nap during the afternoon?",
+      text: "Will she [be having] a nap during the afternoon?",
       translation: "¿Estará ella tomando una siesta durante la tarde?",
     },
     {
@@ -1152,7 +1152,7 @@ export function getStaticData() {
     {
       verb: "To Have",
       tense: "Future Continuous",
-      text: "[Will] they [be having] a celebration this weekend?",
+      text: "Will they [be having] a celebration this weekend?",
       translation:
         "¿Estarán ellos teniendo una celebración este fin de semana?",
     },
@@ -1171,7 +1171,7 @@ export function getStaticData() {
     {
       verb: "To Have",
       tense: "Future Continuous",
-      text: "[Will] you [be having] a good time at the concert?",
+      text: "Will you [be having] a good time at the concert?",
       translation: "¿Estarás pasándola bien en el concierto?",
     },
     {
@@ -1196,7 +1196,7 @@ export function getStaticData() {
     {
       verb: "To Have",
       tense: "Future Perfect",
-      text: "[Will] you [have had] a chance to read the email?",
+      text: "Will you [have had] a chance to read the email?",
       translation: "¿Habrás tenido la oportunidad de leer el correo?",
     },
     {
@@ -1214,7 +1214,7 @@ export function getStaticData() {
     {
       verb: "To Have",
       tense: "Future Perfect",
-      text: "[Will] he [have had] surgery before the end of the year?",
+      text: "Will he [have had] surgery before the end of the year?",
       translation: "¿Habrá tenido él cirugía antes de fin de año?",
     },
     {
@@ -1238,7 +1238,7 @@ export function getStaticData() {
     {
       verb: "To Have",
       tense: "Future Perfect",
-      text: "[Will] they [have had] dinner by eight o'clock?",
+      text: "Will they [have had] dinner by eight o'clock?",
       translation: "¿Habrán cenado ellos para las ocho?",
     },
     {
@@ -1258,7 +1258,7 @@ export function getStaticData() {
     {
       verb: "To Have",
       tense: "Future Perfect Continuous",
-      text: "[Will] you [have been having] lessons long before the recital?",
+      text: "Will you [have been having] lessons long before the recital?",
       translation:
         "¿Habrás estado tomando lecciones mucho tiempo antes del recital?",
     },
@@ -1277,7 +1277,7 @@ export function getStaticData() {
     {
       verb: "To Have",
       tense: "Future Perfect Continuous",
-      text: "[Will] he [have been having] difficulties with the project?",
+      text: "Will he [have been having] difficulties with the project?",
       translation: "¿Habrá estado él teniendo dificultades con el proyecto?",
     },
     {
@@ -1295,7 +1295,7 @@ export function getStaticData() {
     {
       verb: "To Have",
       tense: "Future Perfect Continuous",
-      text: "[Will] we [have been having] success for five years by July?",
+      text: "Will we [have been having] success for five years by July?",
       translation:
         "¿Habremos estado teniendo éxito durante cinco años para julio?",
     },
@@ -1320,7 +1320,7 @@ export function getStaticData() {
     {
       verb: "To Do",
       tense: "Present Simple",
-      text: "[Do] you [do] yoga in the park?",
+      text: "Do you [do] yoga in the park?",
       translation: "¿Haces yoga en el parque?",
     },
     {
@@ -1338,7 +1338,7 @@ export function getStaticData() {
     {
       verb: "To Do",
       tense: "Present Simple",
-      text: "[Does] he [do] the dishes after dinner?",
+      text: "Does he [do] the dishes after dinner?",
       translation: "¿Lava él los platos después de cenar?",
     },
     {
@@ -1362,7 +1362,7 @@ export function getStaticData() {
     {
       verb: "To Do",
       tense: "Present Simple",
-      text: "[Do] they [do] charity work on weekends?",
+      text: "Do they [do] charity work on weekends?",
       translation: "¿Hacen ellos trabajo de caridad los fines de semana?",
     },
     {
@@ -1380,7 +1380,7 @@ export function getStaticData() {
     {
       verb: "To Do",
       tense: "Present Continuous",
-      text: "[Are] you [doing] anything important right now?",
+      text: "Are you [doing] anything important right now?",
       translation: "¿Estás haciendo algo importante ahora mismo?",
     },
     {
@@ -1398,7 +1398,7 @@ export function getStaticData() {
     {
       verb: "To Do",
       tense: "Present Continuous",
-      text: "[Is] he [doing] the shopping today?",
+      text: "Is he [doing] the shopping today?",
       translation: "¿Está haciendo él las compras hoy?",
     },
     {
@@ -1416,7 +1416,7 @@ export function getStaticData() {
     {
       verb: "To Do",
       tense: "Present Continuous",
-      text: "[Are] we [doing] the right thing?",
+      text: "Are we [doing] the right thing?",
       translation: "¿Estamos haciendo lo correcto?",
     },
     {
@@ -1440,7 +1440,7 @@ export function getStaticData() {
     {
       verb: "To Do",
       tense: "Present Perfect",
-      text: "[Have] you [done] your taxes yet?",
+      text: "Have you [done] your taxes yet?",
       translation: "¿Ya has hecho tu declaración de impuestos?",
     },
     {
@@ -1458,7 +1458,7 @@ export function getStaticData() {
     {
       verb: "To Do",
       tense: "Present Perfect",
-      text: "[Has] he [done] his duty as a citizen?",
+      text: "Has he [done] his duty as a citizen?",
       translation: "¿Ha cumplido él con su deber como ciudadano?",
     },
     {
@@ -1482,7 +1482,7 @@ export function getStaticData() {
     {
       verb: "To Do",
       tense: "Present Perfect",
-      text: "[Have] they [done] the cleaning already?",
+      text: "Have they [done] the cleaning already?",
       translation: "¿Ya han hecho la limpieza?",
     },
     {
@@ -1500,7 +1500,7 @@ export function getStaticData() {
     {
       verb: "To Do",
       tense: "Present Perfect Continuous",
-      text: "[Have] you [been doing] your exercises regularly?",
+      text: "Have you [been doing] your exercises regularly?",
       translation: "¿Has estado haciendo tus ejercicios regularmente?",
     },
     {
@@ -1518,7 +1518,7 @@ export function getStaticData() {
     {
       verb: "To Do",
       tense: "Present Perfect Continuous",
-      text: "[Has] he [been doing] his best at work lately?",
+      text: "Has he [been doing] his best at work lately?",
       translation:
         "¿Ha estado él haciendo su mejor esfuerzo en el trabajo últimamente?",
     },
@@ -1537,7 +1537,7 @@ export function getStaticData() {
     {
       verb: "To Do",
       tense: "Present Perfect Continuous",
-      text: "[Have] we [been doing] this the wrong way all along?",
+      text: "Have we [been doing] this the wrong way all along?",
       translation:
         "¿Hemos estado haciendo esto de la manera equivocada todo este tiempo?",
     },
@@ -1565,7 +1565,7 @@ export function getStaticData() {
     {
       verb: "To Do",
       tense: "Past Simple",
-      text: "[Did] you [do] anything special for your birthday?",
+      text: "Did you [do] anything special for your birthday?",
       translation: "¿Hiciste algo especial para tu cumpleaños?",
     },
     {
@@ -1584,7 +1584,7 @@ export function getStaticData() {
     {
       verb: "To Do",
       tense: "Past Simple",
-      text: "[Did] he [do] the exercise correctly?",
+      text: "Did he [do] the exercise correctly?",
       translation: "¿Hizo él el ejercicio correctamente?",
     },
     {
@@ -1608,7 +1608,7 @@ export function getStaticData() {
     {
       verb: "To Do",
       tense: "Past Simple",
-      text: "[Did] they [do] their duty as witnesses?",
+      text: "Did they [do] their duty as witnesses?",
       translation: "¿Cumplieron ellos con su deber como testigos?",
     },
     {
@@ -1627,7 +1627,7 @@ export function getStaticData() {
     {
       verb: "To Do",
       tense: "Past Continuous",
-      text: "[Was] she [doing] her stretches before the workout?",
+      text: "Was she [doing] her stretches before the workout?",
       translation:
         "¿Estaba ella haciendo sus estiramientos antes del entrenamiento?",
     },
@@ -1646,7 +1646,7 @@ export function getStaticData() {
     {
       verb: "To Do",
       tense: "Past Continuous",
-      text: "[Were] they [doing] the crossword together?",
+      text: "Were they [doing] the crossword together?",
       translation: "¿Estaban ellos haciendo el crucigrama juntos?",
     },
     {
@@ -1664,7 +1664,7 @@ export function getStaticData() {
     {
       verb: "To Do",
       tense: "Past Continuous",
-      text: "[Was] he [doing] the laundry when you arrived?",
+      text: "Was he [doing] the laundry when you arrived?",
       translation: "¿Estaba él lavando la ropa cuando llegaste?",
     },
     {
@@ -1691,7 +1691,7 @@ export function getStaticData() {
     {
       verb: "To Do",
       tense: "Past Perfect",
-      text: "[Had] you [done] that kind of work before?",
+      text: "Had you [done] that kind of work before?",
       translation: "¿Habías hecho ese tipo de trabajo antes?",
     },
     {
@@ -1711,7 +1711,7 @@ export function getStaticData() {
     {
       verb: "To Do",
       tense: "Past Perfect",
-      text: "[Had] he [done] his taxes before the deadline?",
+      text: "Had he [done] his taxes before the deadline?",
       translation: "¿Había hecho él sus impuestos antes de la fecha límite?",
     },
     {
@@ -1736,7 +1736,7 @@ export function getStaticData() {
     {
       verb: "To Do",
       tense: "Past Perfect",
-      text: "[Had] they [done] the cleaning before the guests arrived?",
+      text: "Had they [done] the cleaning before the guests arrived?",
       translation:
         "¿Habían hecho ellos la limpieza antes de que llegaran los invitados?",
     },
@@ -1757,7 +1757,7 @@ export function getStaticData() {
     {
       verb: "To Do",
       tense: "Past Perfect Continuous",
-      text: "[Had] you [been doing] your exercises regularly back then?",
+      text: "Had you [been doing] your exercises regularly back then?",
       translation:
         "¿Habías estado haciendo tus ejercicios regularmente en aquel entonces?",
     },
@@ -1778,7 +1778,7 @@ export function getStaticData() {
     {
       verb: "To Do",
       tense: "Past Perfect Continuous",
-      text: "[Had] he [been doing] research for his thesis for long?",
+      text: "Had he [been doing] research for his thesis for long?",
       translation:
         "¿Había estado él investigando para su tesis por mucho tiempo?",
     },
@@ -1806,7 +1806,7 @@ export function getStaticData() {
     {
       verb: "To Do",
       tense: "Past Perfect Continuous",
-      text: "[Had] we [been doing] this correctly before we were stopped?",
+      text: "Had we [been doing] this correctly before we were stopped?",
       translation:
         "¿Habíamos estado haciendo esto correctamente antes de que nos detuvieran?",
     },
@@ -1825,7 +1825,7 @@ export function getStaticData() {
     {
       verb: "To Do",
       tense: "Future Simple",
-      text: "[Will] she [do] her homework before going out?",
+      text: "Will she [do] her homework before going out?",
       translation: "¿Hará ella sus deberes antes de salir?",
     },
     {
@@ -1849,7 +1849,7 @@ export function getStaticData() {
     {
       verb: "To Do",
       tense: "Future Simple",
-      text: "[Will] they [do] the shopping tomorrow morning?",
+      text: "Will they [do] the shopping tomorrow morning?",
       translation: "¿Harán ellos las compras mañana por la mañana?",
     },
     {
@@ -1861,7 +1861,7 @@ export function getStaticData() {
     {
       verb: "To Do",
       tense: "Future Simple",
-      text: "[Will] I [do] well on the entrance exam?",
+      text: "Will I [do] well on the entrance exam?",
       translation: "¿Me irá bien en el examen de admisión?",
     },
     {
@@ -1885,7 +1885,7 @@ export function getStaticData() {
     {
       verb: "To Do",
       tense: "Future Continuous",
-      text: "[Will] she [be doing] yoga when I arrive?",
+      text: "Will she [be doing] yoga when I arrive?",
       translation: "¿Estará ella haciendo yoga cuando yo llegue?",
     },
     {
@@ -1903,7 +1903,7 @@ export function getStaticData() {
     {
       verb: "To Do",
       tense: "Future Continuous",
-      text: "[Will] they [be doing] the renovation next month?",
+      text: "Will they [be doing] the renovation next month?",
       translation: "¿Estarán ellos haciendo la renovación el próximo mes?",
     },
     {
@@ -1921,7 +1921,7 @@ export function getStaticData() {
     {
       verb: "To Do",
       tense: "Future Continuous",
-      text: "[Will] you [be doing] the cooking tonight?",
+      text: "Will you [be doing] the cooking tonight?",
       translation: "¿Estarás cocinando tú esta noche?",
     },
     {
@@ -1946,7 +1946,7 @@ export function getStaticData() {
     {
       verb: "To Do",
       tense: "Future Perfect",
-      text: "[Will] you [have done] your workout by noon?",
+      text: "Will you [have done] your workout by noon?",
       translation: "¿Habrás hecho tu entrenamiento para el mediodía?",
     },
     {
@@ -1964,7 +1964,7 @@ export function getStaticData() {
     {
       verb: "To Do",
       tense: "Future Perfect",
-      text: "[Will] he [have done] his military service by then?",
+      text: "Will he [have done] his military service by then?",
       translation: "¿Habrá hecho él su servicio militar para entonces?",
     },
     {
@@ -1982,7 +1982,7 @@ export function getStaticData() {
     {
       verb: "To Do",
       tense: "Future Perfect",
-      text: "[Will] they [have done] their due diligence?",
+      text: "Will they [have done] their due diligence?",
       translation: "¿Habrán hecho ellos su debida diligencia?",
     },
     {
@@ -2008,7 +2008,7 @@ export function getStaticData() {
     {
       verb: "To Do",
       tense: "Future Perfect Continuous",
-      text: "[Will] you [have been doing] sports regularly by the end of the year?",
+      text: "Will you [have been doing] sports regularly by the end of the year?",
       translation:
         "¿Habrás estado haciendo deporte regularmente para finales de año?",
     },
@@ -2028,7 +2028,7 @@ export function getStaticData() {
     {
       verb: "To Do",
       tense: "Future Perfect Continuous",
-      text: "[Will] he [have been doing] therapy for long by then?",
+      text: "Will he [have been doing] therapy for long by then?",
       translation:
         "¿Habrá estado él haciendo terapia por mucho tiempo para entonces?",
     },
@@ -2049,7 +2049,7 @@ export function getStaticData() {
     {
       verb: "To Do",
       tense: "Future Perfect Continuous",
-      text: "[Will] we [have been doing] this the right way?",
+      text: "Will we [have been doing] this the right way?",
       translation: "¿Habremos estado haciendo esto de la manera correcta?",
     },
     {
@@ -2074,7 +2074,7 @@ export function getStaticData() {
     {
       verb: "To Say",
       tense: "Present Simple",
-      text: "[Do] you [say] that because you are angry?",
+      text: "Do you [say] that because you are angry?",
       translation: "¿Dices eso porque estás enojado?",
     },
     {
@@ -2092,7 +2092,7 @@ export function getStaticData() {
     {
       verb: "To Say",
       tense: "Present Simple",
-      text: "[Does] he [say] thank you after the meal?",
+      text: "Does he [say] thank you after the meal?",
       translation: "¿Dice él gracias después de la comida?",
     },
     {
@@ -2116,7 +2116,7 @@ export function getStaticData() {
     {
       verb: "To Say",
       tense: "Present Simple",
-      text: "[Do] they [say] their names clearly?",
+      text: "Do they [say] their names clearly?",
       translation: "¿Dicen ellos sus nombres con claridad?",
     },
     {
@@ -2134,7 +2134,7 @@ export function getStaticData() {
     {
       verb: "To Say",
       tense: "Present Continuous",
-      text: "[Are] you [saying] that I am wrong?",
+      text: "Are you [saying] that I am wrong?",
       translation: "¿Estás diciendo que estoy equivocado?",
     },
     {
@@ -2152,7 +2152,7 @@ export function getStaticData() {
     {
       verb: "To Say",
       tense: "Present Continuous",
-      text: "[Is] he [saying] anything about the surprise?",
+      text: "Is he [saying] anything about the surprise?",
       translation: "¿Está él diciendo algo sobre la sorpresa?",
     },
     {
@@ -2170,7 +2170,7 @@ export function getStaticData() {
     {
       verb: "To Say",
       tense: "Present Continuous",
-      text: "[Are] we [saying] grace before we eat?",
+      text: "Are we [saying] grace before we eat?",
       translation: "¿Estamos bendiciendo la mesa antes de comer?",
     },
     {
@@ -2194,7 +2194,7 @@ export function getStaticData() {
     {
       verb: "To Say",
       tense: "Present Perfect",
-      text: "[Have] you [said] your name to the receptionist?",
+      text: "Have you [said] your name to the receptionist?",
       translation: "¿Le has dicho tu nombre al recepcionista?",
     },
     {
@@ -2212,7 +2212,7 @@ export function getStaticData() {
     {
       verb: "To Say",
       tense: "Present Perfect",
-      text: "[Has] he [said] anything about the results?",
+      text: "Has he [said] anything about the results?",
       translation: "¿Ha dicho él algo sobre los resultados?",
     },
     {
@@ -2236,7 +2236,7 @@ export function getStaticData() {
     {
       verb: "To Say",
       tense: "Present Perfect",
-      text: "[Have] they [said] where they are going?",
+      text: "Have they [said] where they are going?",
       translation: "¿Han dicho ellos a dónde van?",
     },
     {
@@ -2254,7 +2254,7 @@ export function getStaticData() {
     {
       verb: "To Say",
       tense: "Present Perfect Continuous",
-      text: "[Have] you [been saying] your lines for the play?",
+      text: "Have you [been saying] your lines for the play?",
       translation: "¿Has estado diciendo tus líneas para la obra?",
     },
     {
@@ -2272,7 +2272,7 @@ export function getStaticData() {
     {
       verb: "To Say",
       tense: "Present Perfect Continuous",
-      text: "[Has] he [been saying] bad words lately?",
+      text: "Has he [been saying] bad words lately?",
       translation: "¿Ha estado diciendo malas palabras últimamente?",
     },
     {
@@ -2290,7 +2290,7 @@ export function getStaticData() {
     {
       verb: "To Say",
       tense: "Present Perfect Continuous",
-      text: "[Have] they [been saying] that the prices are rising?",
+      text: "Have they [been saying] that the prices are rising?",
       translation: "¿Han estado ellos diciendo que los precios están subiendo?",
     },
     {
@@ -2314,7 +2314,7 @@ export function getStaticData() {
     {
       verb: "To Say",
       tense: "Past Simple",
-      text: "[Did] he [say] where he was going?",
+      text: "Did he [say] where he was going?",
       translation: "¿Dijo él a dónde iba?",
     },
     {
@@ -2375,7 +2375,7 @@ export function getStaticData() {
     {
       verb: "To Say",
       tense: "Past Continuous",
-      text: "[Was] she [saying] grace when you walked in?",
+      text: "Was she [saying] grace when you walked in?",
       translation: "¿Estaba ella bendiciendo la mesa cuando entraste?",
     },
     {
@@ -2411,7 +2411,7 @@ export function getStaticData() {
     {
       verb: "To Say",
       tense: "Past Continuous",
-      text: "[Were] they [saying] their prayers at that moment?",
+      text: "Were they [saying] their prayers at that moment?",
       translation: "¿Estaban ellos diciendo sus oraciones en ese momento?",
     },
     {
@@ -2435,7 +2435,7 @@ export function getStaticData() {
     {
       verb: "To Say",
       tense: "Past Perfect",
-      text: "[Had] you [said] anything to him before the fight?",
+      text: "Had you [said] anything to him before the fight?",
       translation: "¿Le habías dicho algo antes de la pelea?",
     },
     {
@@ -2453,7 +2453,7 @@ export function getStaticData() {
     {
       verb: "To Say",
       tense: "Past Perfect",
-      text: "[Had] he [said] his name to the receptionist already?",
+      text: "Had he [said] his name to the receptionist already?",
       translation: "¿Ya le había dicho él su nombre al recepcionista?",
     },
     {
@@ -2477,7 +2477,7 @@ export function getStaticData() {
     {
       verb: "To Say",
       tense: "Past Perfect",
-      text: "[Had] she [said] thank you after receiving the gift?",
+      text: "Had she [said] thank you after receiving the gift?",
       translation: "¿Había dicho ella gracias después de recibir el regalo?",
     },
     {
@@ -2497,7 +2497,7 @@ export function getStaticData() {
     {
       verb: "To Say",
       tense: "Past Perfect Continuous",
-      text: "[Had] you [been saying] your prayers regularly at that time?",
+      text: "Had you [been saying] your prayers regularly at that time?",
       translation:
         "¿Habías estado diciendo tus oraciones regularmente en ese tiempo?",
     },
@@ -2516,7 +2516,7 @@ export function getStaticData() {
     {
       verb: "To Say",
       tense: "Past Perfect Continuous",
-      text: "[Had] he [been saying] anything suspicious before he left?",
+      text: "Had he [been saying] anything suspicious before he left?",
       translation: "¿Había estado diciendo algo sospechoso antes de irse?",
     },
     {
@@ -2541,7 +2541,7 @@ export function getStaticData() {
     {
       verb: "To Say",
       tense: "Past Perfect Continuous",
-      text: "[Had] they [been saying] grace before every meal?",
+      text: "Had they [been saying] grace before every meal?",
       translation:
         "¿Habían estado ellos bendiciendo la mesa antes de cada comida?",
     },
@@ -2560,7 +2560,7 @@ export function getStaticData() {
     {
       verb: "To Say",
       tense: "Future Simple",
-      text: "[Will] she [say] yes if he proposes?",
+      text: "Will she [say] yes if he proposes?",
       translation: "¿Dirá ella que sí si él se lo pide?",
     },
     {
@@ -2584,7 +2584,7 @@ export function getStaticData() {
     {
       verb: "To Say",
       tense: "Future Simple",
-      text: "[Will] they [say] their prayers before dinner?",
+      text: "Will they [say] their prayers before dinner?",
       translation: "¿Dirán ellos sus oraciones antes de la cena?",
     },
     {
@@ -2596,7 +2596,7 @@ export function getStaticData() {
     {
       verb: "To Say",
       tense: "Future Simple",
-      text: "[Will] I [say] the right thing during the interview?",
+      text: "Will I [say] the right thing during the interview?",
       translation: "¿Diré lo correcto durante la entrevista?",
     },
     {
@@ -2622,7 +2622,7 @@ export function getStaticData() {
     {
       verb: "To Say",
       tense: "Future Continuous",
-      text: "[Will] she [be saying] grace before we start eating?",
+      text: "Will she [be saying] grace before we start eating?",
       translation:
         "¿Estará ella bendiciendo la mesa antes de que empezaremos a comer?",
     },
@@ -2641,7 +2641,7 @@ export function getStaticData() {
     {
       verb: "To Say",
       tense: "Future Continuous",
-      text: "[Will] they [be saying] that the project is complete?",
+      text: "Will they [be saying] that the project is complete?",
       translation: "¿Estarán diciendo ellos que el proyecto está terminado?",
     },
     {
@@ -2660,7 +2660,7 @@ export function getStaticData() {
     {
       verb: "To Say",
       tense: "Future Continuous",
-      text: "[Will] you [be saying] hello to your family for me?",
+      text: "Will you [be saying] hello to your family for me?",
       translation: "¿Le estarás dando recuerdos a tu familia de mi parte?",
     },
     {
@@ -2684,7 +2684,7 @@ export function getStaticData() {
     {
       verb: "To Say",
       tense: "Future Perfect",
-      text: "[Will] you [have said] your part before the break?",
+      text: "Will you [have said] your part before the break?",
       translation: "¿Habrás dicho tu parte antes del descanso?",
     },
     {
@@ -2702,7 +2702,7 @@ export function getStaticData() {
     {
       verb: "To Say",
       tense: "Future Perfect",
-      text: "[Will] he [have said] thank you to the host?",
+      text: "Will he [have said] thank you to the host?",
       translation: "¿Le habrá dado las gracias al anfitrión?",
     },
     {
@@ -2720,7 +2720,7 @@ export function getStaticData() {
     {
       verb: "To Say",
       tense: "Future Perfect",
-      text: "[Will] they [have said] where the meeting is?",
+      text: "Will they [have said] where the meeting is?",
       translation: "¿Habrán dicho ellos dónde es la reunión?",
     },
     {
@@ -2745,7 +2745,7 @@ export function getStaticData() {
     {
       verb: "To Say",
       tense: "Future Perfect Continuous",
-      text: "[Will] you [have been saying] your lines all night?",
+      text: "Will you [have been saying] your lines all night?",
       translation: "¿Habrás estado diciendo tus líneas toda la noche?",
     },
     {
@@ -2763,7 +2763,7 @@ export function getStaticData() {
     {
       verb: "To Say",
       tense: "Future Perfect Continuous",
-      text: "[Will] he [have been saying] grace before every meal?",
+      text: "Will he [have been saying] grace before every meal?",
       translation: "¿Habrá estado él bendiciendo la mesa antes de cada comida?",
     },
     {
@@ -2782,7 +2782,7 @@ export function getStaticData() {
     {
       verb: "To Say",
       tense: "Future Perfect Continuous",
-      text: "[Will] we [have been saying] the right things to the press?",
+      text: "Will we [have been saying] the right things to the press?",
       translation: "¿Habremos estado diciendo lo correcto a la prensa?",
     },
     {
@@ -2807,7 +2807,7 @@ export function getStaticData() {
     {
       verb: "To Go",
       tense: "Present Simple",
-      text: "[Do] you [go] to the cinema often?",
+      text: "Do you [go] to the cinema often?",
       translation: "¿Vas al cine seguido?",
     },
     {
@@ -2825,7 +2825,7 @@ export function getStaticData() {
     {
       verb: "To Go",
       tense: "Present Simple",
-      text: "[Does] he [go] to the same school as you?",
+      text: "Does he [go] to the same school as you?",
       translation: "¿Él va a la misma escuela que tú?",
     },
     {
@@ -2849,7 +2849,7 @@ export function getStaticData() {
     {
       verb: "To Go",
       tense: "Present Simple",
-      text: "[Do] we [go] left or right here?",
+      text: "Do we [go] left or right here?",
       translation: "¿Vamos a la izquierda o a la derecha aquí?",
     },
     {
@@ -2867,7 +2867,7 @@ export function getStaticData() {
     {
       verb: "To Go",
       tense: "Present Continuous",
-      text: "[Are] you [going] to the party later?",
+      text: "Are you [going] to the party later?",
       translation: "¿Vas a ir a la fiesta más tarde?",
     },
     {
@@ -2885,7 +2885,7 @@ export function getStaticData() {
     {
       verb: "To Go",
       tense: "Present Continuous",
-      text: "[Is] he [going] to the meeting now?",
+      text: "Is he [going] to the meeting now?",
       translation: "¿Él va a la reunión ahora?",
     },
     {
@@ -2903,7 +2903,7 @@ export function getStaticData() {
     {
       verb: "To Go",
       tense: "Present Continuous",
-      text: "[Are] they [going] to move to another city?",
+      text: "Are they [going] to move to another city?",
       translation: "¿Ellos van a mudarse a otra ciudad?",
     },
     {
@@ -2927,7 +2927,7 @@ export function getStaticData() {
     {
       verb: "To Go",
       tense: "Present Perfect",
-      text: "[Have] you ever [gone] skiing in the Alps?",
+      text: "Have you ever [gone] skiing in the Alps?",
       translation: "¿Alguna vez has ido a esquiar a los Alpes?",
     },
     {
@@ -2945,7 +2945,7 @@ export function getStaticData() {
     {
       verb: "To Go",
       tense: "Present Perfect",
-      text: "[Has] he [gone] home for the day?",
+      text: "Has he [gone] home for the day?",
       translation: "¿Él se ha ido a casa por hoy?",
     },
     {
@@ -2969,7 +2969,7 @@ export function getStaticData() {
     {
       verb: "To Go",
       tense: "Present Perfect",
-      text: "[Have] we [gone] far enough?",
+      text: "Have we [gone] far enough?",
       translation: "¿Hemos ido lo suficientemente lejos?",
     },
     {
@@ -2987,7 +2987,7 @@ export function getStaticData() {
     {
       verb: "To Go",
       tense: "Present Perfect Continuous",
-      text: "[Have] you [been going] to the library to study?",
+      text: "Have you [been going] to the library to study?",
       translation: "¿Has estado yendo a la biblioteca a estudiar?",
     },
     {
@@ -3005,7 +3005,7 @@ export function getStaticData() {
     {
       verb: "To Go",
       tense: "Present Perfect Continuous",
-      text: "[Has] he [been going] to the gym regularly?",
+      text: "Has he [been going] to the gym regularly?",
       translation: "¿Él ha estado yendo al gimnasio con regularidad?",
     },
     {
@@ -3029,7 +3029,7 @@ export function getStaticData() {
     {
       verb: "To Go",
       tense: "Present Perfect Continuous",
-      text: "[Have] they [been going] to the same church since childhood?",
+      text: "Have they [been going] to the same church since childhood?",
       translation:
         "¿Ellos han estado yendo a la misma iglesia desde la infancia?",
     },
@@ -3048,7 +3048,7 @@ export function getStaticData() {
     {
       verb: "To Go",
       tense: "Past Simple",
-      text: "[Did] you [go] to Sarah's wedding last weekend?",
+      text: "Did you [go] to Sarah's wedding last weekend?",
       translation: "¿Fuiste a la boda de Sarah el fin de semana pasado?",
     },
     {
@@ -3067,7 +3067,7 @@ export function getStaticData() {
     {
       verb: "To Go",
       tense: "Past Simple",
-      text: "[Did] he [go] home early because of the headache?",
+      text: "Did he [go] home early because of the headache?",
       translation: "¿Se fue él a casa temprano debido al dolor de cabeza?",
     },
     {
@@ -3109,7 +3109,7 @@ export function getStaticData() {
     {
       verb: "To Go",
       tense: "Past Continuous",
-      text: "[Was] she [going] to the same university as her brother?",
+      text: "Was she [going] to the same university as her brother?",
       translation: "¿Estaba ella yendo a la misma universidad que su hermano?",
     },
     {
@@ -3128,7 +3128,7 @@ export function getStaticData() {
     {
       verb: "To Go",
       tense: "Past Continuous",
-      text: "[Were] you [going] through my desk earlier?",
+      text: "Were you [going] through my desk earlier?",
       translation:
         "¿Estabas revisando (yendo a través de) mi escritorio hace un rato?",
     },
@@ -3154,7 +3154,7 @@ export function getStaticData() {
     {
       verb: "To Go",
       tense: "Past Continuous",
-      text: "[Was] it [going] as fast as you expected?",
+      text: "Was it [going] as fast as you expected?",
       translation: "¿Iba tan rápido como esperabas?",
     },
     {
@@ -3172,7 +3172,7 @@ export function getStaticData() {
     {
       verb: "To Go",
       tense: "Past Perfect",
-      text: "[Had] they already [gone] when you called?",
+      text: "Had they already [gone] when you called?",
       translation: "¿Ya se habían ido ellos cuando llamaste?",
     },
     {
@@ -3190,7 +3190,7 @@ export function getStaticData() {
     {
       verb: "To Go",
       tense: "Past Perfect",
-      text: "[Had] he [gone] to the meeting before the boss spoke?",
+      text: "Had he [gone] to the meeting before the boss spoke?",
       translation: "¿Había ido él a la reunión antes de que el jefe hablara?",
     },
     {
@@ -3214,7 +3214,7 @@ export function getStaticData() {
     {
       verb: "To Go",
       tense: "Past Perfect",
-      text: "[Had] we [gone] over the budget before the deadline?",
+      text: "Had we [gone] over the budget before the deadline?",
       translation:
         "¿Nos habíamos pasado del presupuesto antes de la fecha límite?",
     },
@@ -3234,7 +3234,7 @@ export function getStaticData() {
     {
       verb: "To Go",
       tense: "Past Perfect Continuous",
-      text: "[Had] you [been going] out with him long before you got engaged?",
+      text: "Had you [been going] out with him long before you got engaged?",
       translation:
         "¿Habías estado saliendo con él mucho tiempo antes de comprometerte?",
     },
@@ -3254,7 +3254,7 @@ export function getStaticData() {
     {
       verb: "To Go",
       tense: "Past Perfect Continuous",
-      text: "[Had] he [been going] to the same bar every night?",
+      text: "Had he [been going] to the same bar every night?",
       translation: "¿Había estado yendo él al mismo bar cada noche?",
     },
     {
@@ -3279,7 +3279,7 @@ export function getStaticData() {
     {
       verb: "To Go",
       tense: "Past Perfect Continuous",
-      text: "[Had] they [been going] to the library to study every day?",
+      text: "Had they [been going] to the library to study every day?",
       translation:
         "¿Habían estado ellos yendo a la biblioteca a estudiar cada día?",
     },
@@ -3298,7 +3298,7 @@ export function getStaticData() {
     {
       verb: "To Go",
       tense: "Future Simple",
-      text: "[Will] she [go] to the doctor tomorrow morning?",
+      text: "Will she [go] to the doctor tomorrow morning?",
       translation: "¿Irá ella al médico mañana por la mañana?",
     },
     {
@@ -3322,7 +3322,7 @@ export function getStaticData() {
     {
       verb: "To Go",
       tense: "Future Simple",
-      text: "[Will] they [go] by train or by plane?",
+      text: "Will they [go] by train or by plane?",
       translation: "¿Irán ellos en tren o en avión?",
     },
     {
@@ -3334,7 +3334,7 @@ export function getStaticData() {
     {
       verb: "To Go",
       tense: "Future Simple",
-      text: "[Will] I [go] to the same university as my sister?",
+      text: "Will I [go] to the same university as my sister?",
       translation: "¿Iré a la misma universidad que mi hermana?",
     },
     {
@@ -3358,7 +3358,7 @@ export function getStaticData() {
     {
       verb: "To Go",
       tense: "Future Continuous",
-      text: "[Will] you [be going] to the meeting later today?",
+      text: "Will you [be going] to the meeting later today?",
       translation: "¿Estarás yendo a la reunión más tarde hoy?",
     },
     {
@@ -3377,7 +3377,7 @@ export function getStaticData() {
     {
       verb: "To Go",
       tense: "Future Continuous",
-      text: "[Is] he [going] to be going to the office next week?",
+      text: "Is he [going] to be going to the office next week?",
       translation: "¿Estará él yendo a la oficina la próxima semana?",
     },
     {
@@ -3395,7 +3395,7 @@ export function getStaticData() {
     {
       verb: "To Go",
       tense: "Future Continuous",
-      text: "[Will] they [be going] through customs at midnight?",
+      text: "Will they [be going] through customs at midnight?",
       translation: "¿Estarán ellos pasando por la aduana a medianoche?",
     },
     {
@@ -3419,7 +3419,7 @@ export function getStaticData() {
     {
       verb: "To Go",
       tense: "Future Perfect",
-      text: "[Will] you [have gone] to the store by dinner time?",
+      text: "Will you [have gone] to the store by dinner time?",
       translation: "¿Habrás ido a la tienda para la hora de la cena?",
     },
     {
@@ -3437,7 +3437,7 @@ export function getStaticData() {
     {
       verb: "To Go",
       tense: "Future Perfect",
-      text: "[Will] he [have gone] through all the applications by Monday?",
+      text: "Will he [have gone] through all the applications by Monday?",
       translation: "¿Habrá revisado él todas las solicitudes para el lunes?",
     },
     {
@@ -3456,7 +3456,7 @@ export function getStaticData() {
     {
       verb: "To Go",
       tense: "Future Perfect",
-      text: "[Will] we [have gone] over all the details by then?",
+      text: "Will we [have gone] over all the details by then?",
       translation: "¿Habremos repasado todos los detalles para entonces?",
     },
     {
@@ -3482,7 +3482,7 @@ export function getStaticData() {
     {
       verb: "To Go",
       tense: "Future Perfect Continuous",
-      text: "[Will] you [have been going] to night school for long?",
+      text: "Will you [have been going] to night school for long?",
       translation:
         "¿Habrás estado yendo a la escuela nocturna por mucho tiempo?",
     },
@@ -3501,7 +3501,7 @@ export function getStaticData() {
     {
       verb: "To Go",
       tense: "Future Perfect Continuous",
-      text: "[Will] he [have been going] to the same cafe every morning?",
+      text: "Will he [have been going] to the same cafe every morning?",
       translation: "¿Habrá estado él yendo al mismo café cada mañana?",
     },
     {
@@ -3520,7 +3520,7 @@ export function getStaticData() {
     {
       verb: "To Go",
       tense: "Future Perfect Continuous",
-      text: "[Will] we [have been going] in circles for hours?",
+      text: "Will we [have been going] in circles for hours?",
       translation: "¿Habremos estado dando vueltas en círculos durante horas?",
     },
     {
@@ -3545,7 +3545,7 @@ export function getStaticData() {
     {
       verb: "To Get",
       tense: "Present Simple",
-      text: "[Do] you [get] the morning newspaper?",
+      text: "Do you [get] the morning newspaper?",
       translation: "¿Recibes el periódico de la mañana?",
     },
     {
@@ -3563,7 +3563,7 @@ export function getStaticData() {
     {
       verb: "To Get",
       tense: "Present Simple",
-      text: "[Does] he [get] angry easily?",
+      text: "Does he [get] angry easily?",
       translation: "¿Él se enoja fácilmente?",
     },
     {
@@ -3587,7 +3587,7 @@ export function getStaticData() {
     {
       verb: "To Get",
       tense: "Present Simple",
-      text: "[Do] they [get] a discount for being members?",
+      text: "Do they [get] a discount for being members?",
       translation: "¿Obtienen ellos un descuento por ser miembros?",
     },
     {
@@ -3605,7 +3605,7 @@ export function getStaticData() {
     {
       verb: "To Get",
       tense: "Present Continuous",
-      text: "[Are] you [getting] better at playing the guitar?",
+      text: "Are you [getting] better at playing the guitar?",
       translation: "¿Estás mejorando en tocar la guitarra?",
     },
     {
@@ -3623,7 +3623,7 @@ export function getStaticData() {
     {
       verb: "To Get",
       tense: "Present Continuous",
-      text: "[Is] it [getting] colder outside?",
+      text: "Is it [getting] colder outside?",
       translation: "¿Se está poniendo más frío afuera?",
     },
     {
@@ -3647,7 +3647,7 @@ export function getStaticData() {
     {
       verb: "To Get",
       tense: "Present Continuous",
-      text: "[Are] they [getting] married in June?",
+      text: "Are they [getting] married in June?",
       translation: "¿Se van a casar en junio?",
     },
     {
@@ -3665,7 +3665,7 @@ export function getStaticData() {
     {
       verb: "To Get",
       tense: "Present Perfect",
-      text: "[Have] you [gotten] your passport yet?",
+      text: "Have you [gotten] your passport yet?",
       translation: "¿Ya has conseguido tu pasaporte?",
     },
     {
@@ -3683,7 +3683,7 @@ export function getStaticData() {
     {
       verb: "To Get",
       tense: "Present Perfect",
-      text: "[Has] he [gotten] used to the new schedule?",
+      text: "Has he [gotten] used to the new schedule?",
       translation: "¿Se ha acostumbrado él al nuevo horario?",
     },
     {
@@ -3707,7 +3707,7 @@ export function getStaticData() {
     {
       verb: "To Get",
       tense: "Present Perfect",
-      text: "[Have] they [gotten] permission to film here?",
+      text: "Have they [gotten] permission to film here?",
       translation: "¿Han obtenido ellos permiso para filmar aquí?",
     },
     {
@@ -3727,7 +3727,7 @@ export function getStaticData() {
     {
       verb: "To Get",
       tense: "Present Perfect Continuous",
-      text: "[Have] you [been getting] enough sleep recently?",
+      text: "Have you [been getting] enough sleep recently?",
       translation: "¿Has estado durmiendo lo suficiente recientemente?",
     },
     {
@@ -3745,7 +3745,7 @@ export function getStaticData() {
     {
       verb: "To Get",
       tense: "Present Perfect Continuous",
-      text: "[Has] he [been getting] paid on time?",
+      text: "Has he [been getting] paid on time?",
       translation: "¿Le han estado pagando a tiempo?",
     },
     {
@@ -3763,7 +3763,7 @@ export function getStaticData() {
     {
       verb: "To Get",
       tense: "Present Perfect Continuous",
-      text: "[Have] they [been getting] help with their taxes?",
+      text: "Have they [been getting] help with their taxes?",
       translation: "¿Han estado recibiendo ayuda con sus impuestos?",
     },
     {
@@ -3787,7 +3787,7 @@ export function getStaticData() {
     {
       verb: "To Get",
       tense: "Past Simple",
-      text: "[Did] you [get] my text message about the change of plans?",
+      text: "Did you [get] my text message about the change of plans?",
       translation: "¿Recibiste mi mensaje de texto sobre el cambio de planes?",
     },
     {
@@ -3806,7 +3806,7 @@ export function getStaticData() {
     {
       verb: "To Get",
       tense: "Past Simple",
-      text: "[Did] he [get] angry when he found out the truth?",
+      text: "Did he [get] angry when he found out the truth?",
       translation: "¿Se enojó él cuando se enteró de la verdad?",
     },
     {
@@ -3849,7 +3849,7 @@ export function getStaticData() {
     {
       verb: "To Get",
       tense: "Past Continuous",
-      text: "[Were] you [getting] frustrated with the slow internet?",
+      text: "Were you [getting] frustrated with the slow internet?",
       translation: "¿Te estabas frustrando con el internet lento?",
     },
     {
@@ -3868,7 +3868,7 @@ export function getStaticData() {
     {
       verb: "To Get",
       tense: "Past Continuous",
-      text: "[Was] he [getting] a lot of pressure from his boss?",
+      text: "Was he [getting] a lot of pressure from his boss?",
       translation: "¿Estaba él recibiendo mucha presión de su jefe?",
     },
     {
@@ -3887,7 +3887,7 @@ export function getStaticData() {
     {
       verb: "To Get",
       tense: "Past Continuous",
-      text: "[Were] they [getting] married when you lived in London?",
+      text: "Were they [getting] married when you lived in London?",
       translation: "¿Se estaban casando ellos cuando vivías en Londres?",
     },
     {
@@ -3913,7 +3913,7 @@ export function getStaticData() {
     {
       verb: "To Get",
       tense: "Past Perfect",
-      text: "[Had] you [gotten] used to the food by the end of the trip?",
+      text: "Had you [gotten] used to the food by the end of the trip?",
       translation:
         "¿Te habías acostumbrado a la comida para el final del viaje?",
     },
@@ -3934,7 +3934,7 @@ export function getStaticData() {
     {
       verb: "To Get",
       tense: "Past Perfect",
-      text: "[Had] he [gotten] the keys from the landlord already?",
+      text: "Had he [gotten] the keys from the landlord already?",
       translation: "¿Ya había recibido él las llaves del propietario?",
     },
     {
@@ -3959,7 +3959,7 @@ export function getStaticData() {
     {
       verb: "To Get",
       tense: "Past Perfect",
-      text: "[Had] the kids [gotten] dressed before the bus arrived?",
+      text: "Had the kids [gotten] dressed before the bus arrived?",
       translation:
         "¿Se habían vestido los niños antes de que llegara el autobús?",
     },
@@ -3979,7 +3979,7 @@ export function getStaticData() {
     {
       verb: "To Get",
       tense: "Past Perfect Continuous",
-      text: "[Had] you [been getting] suspicious before you saw the evidence?",
+      text: "Had you [been getting] suspicious before you saw the evidence?",
       translation: "¿Habías estado sospechando antes de ver la evidencia?",
     },
     {
@@ -4104,7 +4104,7 @@ export function getStaticData() {
     {
       verb: "To Get",
       tense: "Future Continuous",
-      text: "[Will] you [be getting] a ride from your brother?",
+      text: "Will you [be getting] a ride from your brother?",
       translation: "¿Te estará llevando tu hermano?",
     },
     {
@@ -4122,7 +4122,7 @@ export function getStaticData() {
     {
       verb: "To Get",
       tense: "Future Continuous",
-      text: "[Will] he [be getting] any help with the move?",
+      text: "Will he [be getting] any help with the move?",
       translation: "¿Estará recibiendo alguna ayuda con la mudanza?",
     },
     {
@@ -4147,7 +4147,7 @@ export function getStaticData() {
     {
       verb: "To Get",
       tense: "Future Continuous",
-      text: "[Will] they [be getting] along better in the new office?",
+      text: "Will they [be getting] along better in the new office?",
       translation: "¿Se estarán llevando mejor en la nueva oficina?",
     },
     {
@@ -4166,7 +4166,7 @@ export function getStaticData() {
     {
       verb: "To Get",
       tense: "Future Perfect",
-      text: "[Will] you [have gotten] the results by Friday?",
+      text: "Will you [have gotten] the results by Friday?",
       translation: "¿Habrás recibido los resultados para el viernes?",
     },
     {
@@ -4184,7 +4184,7 @@ export function getStaticData() {
     {
       verb: "To Get",
       tense: "Future Perfect",
-      text: "[Will] he [have gotten] the project finished by tonight?",
+      text: "Will he [have gotten] the project finished by tonight?",
       translation: "¿Habrá terminado él el proyecto para esta noche?",
     },
     {
@@ -4208,7 +4208,7 @@ export function getStaticData() {
     {
       verb: "To Get",
       tense: "Future Perfect",
-      text: "[Will] they [have gotten] lost without a GPS?",
+      text: "Will they [have gotten] lost without a GPS?",
       translation: "¿Se habrán perdido sin un GPS?",
     },
     {
@@ -4226,7 +4226,7 @@ export function getStaticData() {
     {
       verb: "To Get",
       tense: "Future Perfect Continuous",
-      text: "[Will] you [have been getting] enough sleep by then?",
+      text: "Will you [have been getting] enough sleep by then?",
       translation: "¿Habrás estado durmiendo lo suficiente para entonces?",
     },
     {
@@ -4244,7 +4244,7 @@ export function getStaticData() {
     {
       verb: "To Get",
       tense: "Future Perfect Continuous",
-      text: "[Will] he [have been getting] the help he needs?",
+      text: "Will he [have been getting] the help he needs?",
       translation: "¿Habrá estado recibiendo él la ayuda que necesita?",
     },
     {
@@ -4268,7 +4268,7 @@ export function getStaticData() {
     {
       verb: "To Get",
       tense: "Future Perfect Continuous",
-      text: "[Will] they [have been getting] along better by June?",
+      text: "Will they [have been getting] along better by June?",
       translation: "¿Se habrán estado llevando mejor para junio?",
     },
     {
@@ -4286,7 +4286,7 @@ export function getStaticData() {
     {
       verb: "To Make",
       tense: "Present Simple",
-      text: "[Do] you [make] your own clothes?",
+      text: "Do you [make] your own clothes?",
       translation: "¿Haces tu propia ropa?",
     },
     {
@@ -4304,7 +4304,7 @@ export function getStaticData() {
     {
       verb: "To Make",
       tense: "Present Simple",
-      text: "[Does] he [make] many mistakes in his writing?",
+      text: "Does he [make] many mistakes in his writing?",
       translation: "¿Comete él muchos errores en su escritura?",
     },
     {
@@ -4328,7 +4328,7 @@ export function getStaticData() {
     {
       verb: "To Make",
       tense: "Present Simple",
-      text: "[Do] they [make] a reservation before they go?",
+      text: "Do they [make] a reservation before they go?",
       translation: "¿Hacen ellos una reserva antes de ir?",
     },
     {
@@ -4347,7 +4347,7 @@ export function getStaticData() {
     {
       verb: "To Make",
       tense: "Present Continuous",
-      text: "[Are] you [making] progress on your project?",
+      text: "Are you [making] progress on your project?",
       translation: "¿Estás progresando en tu proyecto?",
     },
     {
@@ -4365,7 +4365,7 @@ export function getStaticData() {
     {
       verb: "To Make",
       tense: "Present Continuous",
-      text: "[Is] he [making] a phone call at the moment?",
+      text: "Is he [making] a phone call at the moment?",
       translation: "¿Está él haciendo una llamada telefónica en este momento?",
     },
     {
@@ -4389,7 +4389,7 @@ export function getStaticData() {
     {
       verb: "To Make",
       tense: "Present Continuous",
-      text: "[Are] they [making] a video for their YouTube channel?",
+      text: "Are they [making] a video for their YouTube channel?",
       translation: "¿Están haciendo un video para su canal de YouTube?",
     },
     {
@@ -4407,7 +4407,7 @@ export function getStaticData() {
     {
       verb: "To Make",
       tense: "Present Perfect",
-      text: "[Have] you [made] the bed yet?",
+      text: "Have you [made] the bed yet?",
       translation: "¿Ya has tendido la cama?",
     },
     {
@@ -4425,7 +4425,7 @@ export function getStaticData() {
     {
       verb: "To Make",
       tense: "Present Perfect",
-      text: "[Has] he [made] any comments about the news?",
+      text: "Has he [made] any comments about the news?",
       translation: "¿Ha hecho él algún comentario sobre las noticias?",
     },
     {
@@ -4449,7 +4449,7 @@ export function getStaticData() {
     {
       verb: "To Make",
       tense: "Present Perfect",
-      text: "[Have] they [made] peace with their past?",
+      text: "Have they [made] peace with their past?",
       translation: "¿Han hecho las paces con su pasado?",
     },
     {
@@ -4467,7 +4467,7 @@ export function getStaticData() {
     {
       verb: "To Make",
       tense: "Present Perfect Continuous",
-      text: "[Have] you [been making] a lot of noise in the garage?",
+      text: "Have you [been making] a lot of noise in the garage?",
       translation: "¿Has estado haciendo mucho ruido en el garaje?",
     },
     {
@@ -4486,7 +4486,7 @@ export function getStaticData() {
     {
       verb: "To Make",
       tense: "Present Perfect Continuous",
-      text: "[Has] he [been making] money selling old books?",
+      text: "Has he [been making] money selling old books?",
       translation: "¿Ha estado él ganando dinero vendiendo libros viejos?",
     },
     {
@@ -4510,13 +4510,13 @@ export function getStaticData() {
     {
       verb: "To Make",
       tense: "Present Perfect Continuous",
-      text: "[Have] they [been making] an effort to speak more English?",
+      text: "Have they [been making] an effort to speak more English?",
       translation: "¿Han estado haciendo un esfuerzo para hablar más inglés?",
     },
     {
       verb: "To Make",
       tense: "Past Simple",
-      text: "I [made] a huge mistake on the final exam.",
+      text: "I made a huge mistake on the final exam.",
       translation: "Cometí un gran error en el examen final.",
     },
     {
@@ -4529,7 +4529,7 @@ export function getStaticData() {
     {
       verb: "To Make",
       tense: "Past Simple",
-      text: "[Did] you [make] the bed this morning?",
+      text: "Did you [make] the bed this morning?",
       translation: "¿Tendiste la cama esta mañana?",
     },
     {
@@ -4571,7 +4571,7 @@ export function getStaticData() {
     {
       verb: "To Make",
       tense: "Past Simple",
-      text: "[Did] they [make] it to the meeting on time?",
+      text: "Did they [make] it to the meeting on time?",
       translation: "¿Llegaron a tiempo a la reunión?",
     },
     {
@@ -4590,7 +4590,7 @@ export function getStaticData() {
     {
       verb: "To Make",
       tense: "Past Continuous",
-      text: "[Were] you [making] fun of my new haircut?",
+      text: "Were you [making] fun of my new haircut?",
       translation: "¿Te estabas burlando de mi nuevo corte de pelo?",
     },
     {
@@ -4636,7 +4636,7 @@ export function getStaticData() {
     {
       verb: "To Make",
       tense: "Past Continuous",
-      text: "[Were] they [making] a documentary about the local wildlife?",
+      text: "Were they [making] a documentary about the local wildlife?",
       translation: "¿Estaban haciendo un documental sobre la fauna local?",
     },
     {
@@ -4655,7 +4655,7 @@ export function getStaticData() {
     {
       verb: "To Make",
       tense: "Past Perfect",
-      text: "[Had] you [made] the arrangements before the deadline?",
+      text: "Had you [made] the arrangements before the deadline?",
       translation: "¿Habías hecho los preparativos antes de la fecha límite?",
     },
     {
@@ -4700,7 +4700,7 @@ export function getStaticData() {
     {
       verb: "To Make",
       tense: "Past Perfect",
-      text: "[Had] they [made] any progress before the supervisor arrived?",
+      text: "Had they [made] any progress before the supervisor arrived?",
       translation:
         "¿Habían hecho algún progreso antes de que llegara el supervisor?",
     },
@@ -4721,7 +4721,7 @@ export function getStaticData() {
     {
       verb: "To Make",
       tense: "Past Perfect Continuous",
-      text: "[Had] you [been making] a lot of noise before the neighbors complained?",
+      text: "Had you [been making] a lot of noise before the neighbors complained?",
       translation:
         "¿Habías estado haciendo mucho ruido antes de que los vecinos se quejaran?",
     },
@@ -4770,7 +4770,7 @@ export function getStaticData() {
     {
       verb: "To Make",
       tense: "Past Perfect Continuous",
-      text: "[Had] they [been making] an effort to reconcile their differences?",
+      text: "Had they [been making] an effort to reconcile their differences?",
       translation:
         "¿Habían estado haciendo un esfuerzo por reconciliar sus diferencias?",
     },
@@ -4789,7 +4789,7 @@ export function getStaticData() {
     {
       verb: "To Make",
       tense: "Future Simple",
-      text: "[Will] you [make] us some sandwiches for the trip?",
+      text: "Will you [make] us some sandwiches for the trip?",
       translation: "¿Nos harás unos sándwiches para el viaje?",
     },
     {
@@ -4807,7 +4807,7 @@ export function getStaticData() {
     {
       verb: "To Make",
       tense: "Future Simple",
-      text: "[Will] he [make] an effort to be there on time?",
+      text: "Will he [make] an effort to be there on time?",
       translation: "¿Hará él un esfuerzo por estar allí a tiempo?",
     },
     {
@@ -4831,7 +4831,7 @@ export function getStaticData() {
     {
       verb: "To Make",
       tense: "Future Simple",
-      text: "[Will] they [make] a public announcement tomorrow?",
+      text: "Will they [make] a public announcement tomorrow?",
       translation: "¿Harán ellos un anuncio público mañana?",
     },
     {
@@ -4851,7 +4851,7 @@ export function getStaticData() {
     {
       verb: "To Make",
       tense: "Future Continuous",
-      text: "[Will] you [be making] a speech at the conference?",
+      text: "Will you [be making] a speech at the conference?",
       translation: "¿Estarás dando un discurso en la conferencia?",
     },
     {
@@ -4870,7 +4870,7 @@ export function getStaticData() {
     {
       verb: "To Make",
       tense: "Future Continuous",
-      text: "[Will] he [be making] much progress with his recovery?",
+      text: "Will he [be making] much progress with his recovery?",
       translation: "¿Estará él progresando mucho en su recuperación?",
     },
     {
@@ -4896,7 +4896,7 @@ export function getStaticData() {
     {
       verb: "To Make",
       tense: "Future Continuous",
-      text: "[Will] they [be making] an inquiry into the matter?",
+      text: "Will they [be making] an inquiry into the matter?",
       translation:
         "¿Estarán ellos realizando una investigación sobre el asunto?",
     },
@@ -4915,7 +4915,7 @@ export function getStaticData() {
     {
       verb: "To Make",
       tense: "Future Perfect",
-      text: "[Will] you [have made] the cake by the time the guests arrive?",
+      text: "Will you [have made] the cake by the time the guests arrive?",
       translation: "¿Habrás hecho el pastel para cuando lleguen los invitados?",
     },
     {
@@ -4935,7 +4935,7 @@ export function getStaticData() {
     {
       verb: "To Make",
       tense: "Future Perfect",
-      text: "[Will] he [have made] a full recovery by the summer?",
+      text: "Will he [have made] a full recovery by the summer?",
       translation: "¿Se habrá recuperado completamente para el verano?",
     },
     {
@@ -4959,7 +4959,7 @@ export function getStaticData() {
     {
       verb: "To Make",
       tense: "Future Perfect",
-      text: "[Will] they [have made] the payment by Friday?",
+      text: "Will they [have made] the payment by Friday?",
       translation: "¿Habrán hecho el pago para el viernes?",
     },
     {
@@ -4979,7 +4979,7 @@ export function getStaticData() {
     {
       verb: "To Make",
       tense: "Future Perfect Continuous",
-      text: "[Will] you [have been making] ceramics for long when you retire?",
+      text: "Will you [have been making] ceramics for long when you retire?",
       translation:
         "¿Habrás estado haciendo cerámica por mucho tiempo cuando te jubiles?",
     },
@@ -4999,7 +4999,7 @@ export function getStaticData() {
     {
       verb: "To Make",
       tense: "Future Perfect Continuous",
-      text: "[Will] he [have been making] money through that app for long?",
+      text: "Will he [have been making] money through that app for long?",
       translation:
         "¿Habrá estado él ganando dinero a través de esa aplicación por mucho tiempo?",
     },
@@ -5027,7 +5027,7 @@ export function getStaticData() {
     {
       verb: "To Make",
       tense: "Future Perfect Continuous",
-      text: "[Will] they [have been making] inquiries since the start of the trial?",
+      text: "Will they [have been making] inquiries since the start of the trial?",
       translation:
         "¿Habrán estado ellos realizando indagaciones desde el inicio del juicio?",
     },
@@ -5046,7 +5046,7 @@ export function getStaticData() {
     {
       verb: "To Know",
       tense: "Present Simple",
-      text: "[Do] you [know] where the nearest station is?",
+      text: "Do you [know] where the nearest station is?",
       translation: "¿Sabes dónde está la estación más cercana?",
     },
     {
@@ -5064,7 +5064,7 @@ export function getStaticData() {
     {
       verb: "To Know",
       tense: "Present Simple",
-      text: "[Does] he [know] the truth about what happened?",
+      text: "Does he [know] the truth about what happened?",
       translation: "¿Sabe él la verdad sobre lo que pasó?",
     },
     {
@@ -5088,7 +5088,7 @@ export function getStaticData() {
     {
       verb: "To Know",
       tense: "Present Simple",
-      text: "[Do] we [know] the way back home?",
+      text: "Do we [know] the way back home?",
       translation: "¿Sabemos el camino de vuelta a casa?",
     },
     {
@@ -5106,7 +5106,7 @@ export function getStaticData() {
     {
       verb: "To Know",
       tense: "Present Continuous",
-      text: "[Are] you [knowing] the joy of parenthood yet?",
+      text: "Are you [knowing] the joy of parenthood yet?",
       translation: "¿Estás conociendo ya la alegría de la paternidad?",
     },
     {
@@ -5125,7 +5125,7 @@ export function getStaticData() {
     {
       verb: "To Know",
       tense: "Present Continuous",
-      text: "[Is] he [knowing] the consequences of his actions?",
+      text: "Is he [knowing] the consequences of his actions?",
       translation: "¿Está él conociendo las consecuencias de sus acciones?",
     },
     {
@@ -5151,7 +5151,7 @@ export function getStaticData() {
     {
       verb: "To Know",
       tense: "Present Continuous",
-      text: "[Are] we [knowing] our limits correctly?",
+      text: "Are we [knowing] our limits correctly?",
       translation: "¿Estamos conociendo nuestros límites correctamente?",
     },
     {
@@ -5169,7 +5169,7 @@ export function getStaticData() {
     {
       verb: "To Know",
       tense: "Present Perfect",
-      text: "[Have] you [known] about the meeting for long?",
+      text: "Have you [known] about the meeting for long?",
       translation: "¿Has sabido lo de la reunión por mucho tiempo?",
     },
     {
@@ -5187,7 +5187,7 @@ export function getStaticData() {
     {
       verb: "To Know",
       tense: "Present Perfect",
-      text: "[Has] he [known] about the surprise party?",
+      text: "Has he [known] about the surprise party?",
       translation: "¿Ha sabido él lo de la fiesta sorpresa?",
     },
     {
@@ -5211,7 +5211,7 @@ export function getStaticData() {
     {
       verb: "To Know",
       tense: "Present Perfect",
-      text: "[Have] they [known] the risks involved?",
+      text: "Have they [known] the risks involved?",
       translation: "¿Han conocido los riesgos involucrados?",
     },
     {
@@ -5230,7 +5230,7 @@ export function getStaticData() {
     {
       verb: "To Know",
       tense: "Present Perfect Continuous",
-      text: "[Have] you [been knowing] the symptoms for a while?",
+      text: "Have you [been knowing] the symptoms for a while?",
       translation: "¿Has estado conociendo los síntomas por un tiempo?",
     },
     {
@@ -5250,7 +5250,7 @@ export function getStaticData() {
     {
       verb: "To Know",
       tense: "Present Perfect Continuous",
-      text: "[Has] he [been knowing] better health lately?",
+      text: "Has he [been knowing] better health lately?",
       translation: "¿Ha estado él conociendo una mejor salud últimamente?",
     },
     {
@@ -5268,7 +5268,7 @@ export function getStaticData() {
     {
       verb: "To Know",
       tense: "Present Perfect Continuous",
-      text: "[Have] they [been knowing] the benefits of the new law?",
+      text: "Have they [been knowing] the benefits of the new law?",
       translation: "¿Han estado conociendo los beneficios de la nueva ley?",
     },
     {
@@ -5294,7 +5294,7 @@ export function getStaticData() {
     {
       verb: "To Know",
       tense: "Past Simple",
-      text: "[Did] you [know] about the surprise party?",
+      text: "Did you [know] about the surprise party?",
       translation: "¿Sabías lo de la fiesta sorpresa?",
     },
     {
@@ -5312,7 +5312,7 @@ export function getStaticData() {
     {
       verb: "To Know",
       tense: "Past Simple",
-      text: "[Did] he [know] how to fix the car himself?",
+      text: "Did he [know] how to fix the car himself?",
       translation: "¿Sabía él cómo arreglar el coche por sí mismo?",
     },
     {
@@ -5330,7 +5330,7 @@ export function getStaticData() {
     {
       verb: "To Know",
       tense: "Past Simple",
-      text: "[Did] they [know] the results of the test yesterday?",
+      text: "Did they [know] the results of the test yesterday?",
       translation: "¿Supieron ellos los resultados del examen ayer?",
     },
     {
@@ -5356,7 +5356,7 @@ export function getStaticData() {
     {
       verb: "To Know",
       tense: "Past Continuous",
-      text: "[Were] you [knowing] the joy of success at that time?",
+      text: "Were you [knowing] the joy of success at that time?",
       translation: "¿Estabas conociendo la alegría del éxito en ese momento?",
     },
     {
@@ -5374,7 +5374,7 @@ export function getStaticData() {
     {
       verb: "To Know",
       tense: "Past Continuous",
-      text: "[Was] he [knowing] his limits during the race?",
+      text: "Was he [knowing] his limits during the race?",
       translation: "¿Estaba él conociendo sus límites durante la carrera?",
     },
     {
@@ -5399,7 +5399,7 @@ export function getStaticData() {
     {
       verb: "To Know",
       tense: "Past Continuous",
-      text: "[Were] they [knowing] the consequences as they planned it?",
+      text: "Were they [knowing] the consequences as they planned it?",
       translation:
         "¿Estaban conociendo las consecuencias mientras lo planeaban?",
     },
@@ -5420,7 +5420,7 @@ export function getStaticData() {
     {
       verb: "To Know",
       tense: "Past Perfect",
-      text: "[Had] you [known] him long when you got married?",
+      text: "Had you [known] him long when you got married?",
       translation: "¿Lo conocías desde hacía mucho cuando te casaste?",
     },
     {
@@ -5439,7 +5439,7 @@ export function getStaticData() {
     {
       verb: "To Know",
       tense: "Past Perfect",
-      text: "[Had] he [known] the risks before he invested?",
+      text: "Had he [known] the risks before he invested?",
       translation: "¿Había conocido él los riesgos antes de invertir?",
     },
     {
@@ -5463,7 +5463,7 @@ export function getStaticData() {
     {
       verb: "To Know",
       tense: "Past Perfect",
-      text: "[Had] they [known] what to do in case of emergency?",
+      text: "Had they [known] what to do in case of emergency?",
       translation: "¿Habían sabido ellos qué hacer en caso de emergencia?",
     },
     {
@@ -5482,7 +5482,7 @@ export function getStaticData() {
     {
       verb: "To Know",
       tense: "Past Perfect Continuous",
-      text: "[Had] you [been knowing] better results before the crisis?",
+      text: "Had you [been knowing] better results before the crisis?",
       translation:
         "¿Habías estado conociendo mejores resultados antes de la crisis?",
     },
@@ -5503,7 +5503,7 @@ export function getStaticData() {
     {
       verb: "To Know",
       tense: "Past Perfect Continuous",
-      text: "[Had] he [been knowing] steady growth in his business?",
+      text: "Had he [been knowing] steady growth in his business?",
       translation:
         "¿Había estado él conociendo un crecimiento constante en su negocio?",
     },
@@ -5531,7 +5531,7 @@ export function getStaticData() {
     {
       verb: "To Know",
       tense: "Past Perfect Continuous",
-      text: "[Had] they [been knowing] the benefits of the new policy?",
+      text: "Had they [been knowing] the benefits of the new policy?",
       translation:
         "¿Habían estado ellos conociendo los beneficios de la nueva política?",
     },
@@ -5550,7 +5550,7 @@ export function getStaticData() {
     {
       verb: "To Know",
       tense: "Future Simple",
-      text: "[Will] you [know] how to get there without a GPS?",
+      text: "Will you [know] how to get there without a GPS?",
       translation: "¿Sabrás cómo llegar allí sin un GPS?",
     },
     {
@@ -5569,7 +5569,7 @@ export function getStaticData() {
     {
       verb: "To Know",
       tense: "Future Simple",
-      text: "[Will] he [know] anyone at the conference?",
+      text: "Will he [know] anyone at the conference?",
       translation: "¿Conocerá él a alguien en la conferencia?",
     },
     {
@@ -5594,7 +5594,7 @@ export function getStaticData() {
     {
       verb: "To Know",
       tense: "Future Simple",
-      text: "[Will] they [know] if we make any changes?",
+      text: "Will they [know] if we make any changes?",
       translation: "¿Sabrán ellos si hacemos algún cambio?",
     },
     {
@@ -5614,7 +5614,7 @@ export function getStaticData() {
     {
       verb: "To Know",
       tense: "Future Continuous",
-      text: "[Will] you [be knowing] your coworkers better by next week?",
+      text: "Will you [be knowing] your coworkers better by next week?",
       translation:
         "¿Estarás conociendo mejor a tus compañeros para la próxima semana?",
     },
@@ -5635,7 +5635,7 @@ export function getStaticData() {
     {
       verb: "To Know",
       tense: "Future Continuous",
-      text: "[Will] he [be knowing] the details as the investigation unfolds?",
+      text: "Will he [be knowing] the details as the investigation unfolds?",
       translation:
         "¿Estará él conociendo los detalles a medida que se desarrolle la investigación?",
     },
@@ -5655,7 +5655,7 @@ export function getStaticData() {
     {
       verb: "To Know",
       tense: "Future Continuous",
-      text: "[Will] they [be knowing] the full story by the end of the day?",
+      text: "Will they [be knowing] the full story by the end of the day?",
       translation:
         "¿Estarán conociendo la historia completa para el final del día?",
     },
@@ -5682,7 +5682,7 @@ export function getStaticData() {
     {
       verb: "To Know",
       tense: "Future Perfect",
-      text: "[Will] you [have known] enough about the case by the trial?",
+      text: "Will you [have known] enough about the case by the trial?",
       translation: "¿Habrás sabido lo suficiente sobre el caso para el juicio?",
     },
     {
@@ -5702,7 +5702,7 @@ export function getStaticData() {
     {
       verb: "To Know",
       tense: "Future Perfect",
-      text: "[Will] he [have known] the truth by the time we see him?",
+      text: "Will he [have known] the truth by the time we see him?",
       translation: "¿Habrá sabido él la verdad para cuando lo veamos?",
     },
     {
@@ -5721,7 +5721,7 @@ export function getStaticData() {
     {
       verb: "To Know",
       tense: "Future Perfect",
-      text: "[Will] they [have known] about the vacancy before it’s public?",
+      text: "Will they [have known] about the vacancy before it’s public?",
       translation:
         "¿Habrán sabido ellos de la vacante antes de que sea pública?",
     },
@@ -5749,7 +5749,7 @@ export function getStaticData() {
     {
       verb: "To Know",
       tense: "Future Perfect Continuous",
-      text: "[Will] you [have been knowing] the difficulty for long by then?",
+      text: "Will you [have been knowing] the difficulty for long by then?",
       translation:
         "¿Habrás estado conociendo la dificultad durante mucho tiempo para entonces?",
     },
@@ -5770,7 +5770,7 @@ export function getStaticData() {
     {
       verb: "To Know",
       tense: "Future Perfect Continuous",
-      text: "[Will] he [have been knowing] steady progress in his studies?",
+      text: "Will he [have been knowing] steady progress in his studies?",
       translation:
         "¿Habrá estado él conociendo un progreso constante en sus estudios?",
     },
@@ -5790,7 +5790,7 @@ export function getStaticData() {
     {
       verb: "To Know",
       tense: "Future Perfect Continuous",
-      text: "[Will] they [have been knowing] the perks of the new system?",
+      text: "Will they [have been knowing] the perks of the new system?",
       translation:
         "¿Habrán estado ellos conociendo las ventajas del nuevo sistema?",
     },
@@ -5816,7 +5816,7 @@ export function getStaticData() {
     {
       verb: "To Think",
       tense: "Present Simple",
-      text: "[Do] you [think] this is a good idea?",
+      text: "Do you [think] this is a good idea?",
       translation: "¿Crees que esta es una buena idea?",
     },
     {
@@ -5858,7 +5858,7 @@ export function getStaticData() {
     {
       verb: "To Think",
       tense: "Present Simple",
-      text: "[Do] they [think] about the consequences?",
+      text: "Do they [think] about the consequences?",
       translation: "¿Piensan ellos en las consecuencias?",
     },
     {
@@ -8803,7 +8803,7 @@ export function getStaticData() {
     {
       verb: "To Want",
       tense: "Present Simple",
-      text: "[Do] you [want] some help with your luggage?",
+      text: "Do you [want] some help with your luggage?",
       translation: "¿Quieres ayuda con tu equipaje?",
     },
     {
@@ -8821,7 +8821,7 @@ export function getStaticData() {
     {
       verb: "To Want",
       tense: "Present Simple",
-      text: "[Does] he [want] to join us for dinner tonight?",
+      text: "Does he [want] to join us for dinner tonight?",
       translation: "¿Quiere él acompañarnos a cenar esta noche?",
     },
     {
@@ -8845,7 +8845,7 @@ export function getStaticData() {
     {
       verb: "To Want",
       tense: "Present Simple",
-      text: "[Do] they [want] coffee or tea?",
+      text: "Do they [want] coffee or tea?",
       translation: "¿Quieren café o té?",
     },
     {
@@ -8863,7 +8863,7 @@ export function getStaticData() {
     {
       verb: "To Want",
       tense: "Present Continuous",
-      text: "[Are] you [wanting] to talk about what happened?",
+      text: "Are you [wanting] to talk about what happened?",
       translation: "¿Estás queriendo hablar de lo que pasó?",
     },
     {
@@ -8881,7 +8881,7 @@ export function getStaticData() {
     {
       verb: "To Want",
       tense: "Present Continuous",
-      text: "[Is] he [wanting] more responsibility at work?",
+      text: "Is he [wanting] more responsibility at work?",
       translation: "¿Está él queriendo más responsabilidad en el trabajo?",
     },
     {
@@ -8899,7 +8899,7 @@ export function getStaticData() {
     {
       verb: "To Want",
       tense: "Present Continuous",
-      text: "[Are] they [wanting] to move to a different city?",
+      text: "Are they [wanting] to move to a different city?",
       translation: "¿Están ellos queriendo mudarse a una ciudad diferente?",
     },
     {
@@ -8923,7 +8923,7 @@ export function getStaticData() {
     {
       verb: "To Want",
       tense: "Present Perfect",
-      text: "[Have] you [wanted] to quit your job recently?",
+      text: "Have you [wanted] to quit your job recently?",
       translation: "¿Has querido dejar tu trabajo recientemente?",
     },
     {
@@ -8941,7 +8941,7 @@ export function getStaticData() {
     {
       verb: "To Want",
       tense: "Present Perfect",
-      text: "[Has] he [wanted] to learn a second language?",
+      text: "Has he [wanted] to learn a second language?",
       translation: "¿Ha querido él aprender un segundo idioma?",
     },
     {
@@ -8959,7 +8959,7 @@ export function getStaticData() {
     {
       verb: "To Want",
       tense: "Present Perfect",
-      text: "[Have] they [wanted] to apologize for the delay?",
+      text: "Have they [wanted] to apologize for the delay?",
       translation: "¿Han querido ellos disculparse por el retraso?",
     },
     {
@@ -8983,7 +8983,7 @@ export function getStaticData() {
     {
       verb: "To Want",
       tense: "Present Perfect Continuous",
-      text: "[Have] you [been wanting] to start your own business?",
+      text: "Have you [been wanting] to start your own business?",
       translation: "¿Has estado queriendo empezar tu propio negocio?",
     },
     {
@@ -9001,7 +9001,7 @@ export function getStaticData() {
     {
       verb: "To Want",
       tense: "Present Perfect Continuous",
-      text: "[Has] he [been wanting] to buy those tickets since Monday?",
+      text: "Has he [been wanting] to buy those tickets since Monday?",
       translation:
         "¿Ha estado él queriendo comprar esas entradas desde el lunes?",
     },
@@ -9021,7 +9021,7 @@ export function getStaticData() {
     {
       verb: "To Want",
       tense: "Present Perfect Continuous",
-      text: "[Have] they [been wanting] to go on vacation to the beach?",
+      text: "Have they [been wanting] to go on vacation to the beach?",
       translation: "¿Han estado ellos queriendo ir de vacaciones a la playa?",
     },
     {
@@ -9046,7 +9046,7 @@ export function getStaticData() {
     {
       verb: "To Want",
       tense: "Past Simple",
-      text: "[Did] you [want] to speak with the manager earlier?",
+      text: "Did you [want] to speak with the manager earlier?",
       translation: "¿Querías hablar con el gerente antes?",
     },
     {
@@ -9064,7 +9064,7 @@ export function getStaticData() {
     {
       verb: "To Want",
       tense: "Past Simple",
-      text: "[Did] he [want] the red one or the blue one?",
+      text: "Did he [want] the red one or the blue one?",
       translation: "¿Quería él el rojo o el azul?",
     },
     {
@@ -9082,7 +9082,7 @@ export function getStaticData() {
     {
       verb: "To Want",
       tense: "Past Simple",
-      text: "[Did] they [want] to join the club last semester?",
+      text: "Did they [want] to join the club last semester?",
       translation: "¿Quisieron ellos unirse al club el semestre pasado?",
     },
     {
@@ -9106,7 +9106,7 @@ export function getStaticData() {
     {
       verb: "To Want",
       tense: "Past Continuous",
-      text: "[Were] you [wanting] to leave when the phone rang?",
+      text: "Were you [wanting] to leave when the phone rang?",
       translation: "¿Estabas queriendo irte cuando sonó el teléfono?",
     },
     {
@@ -9124,7 +9124,7 @@ export function getStaticData() {
     {
       verb: "To Want",
       tense: "Past Continuous",
-      text: "[Was] he [wanting] to quit his job back then?",
+      text: "Was he [wanting] to quit his job back then?",
       translation: "¿Estaba él queriendo dejar su trabajo en aquel entonces?",
     },
     {
@@ -9142,7 +9142,7 @@ export function getStaticData() {
     {
       verb: "To Want",
       tense: "Past Continuous",
-      text: "[Were] they [wanting] to move out during the winter?",
+      text: "Were they [wanting] to move out during the winter?",
       translation: "¿Estaban ellos queriendo mudarse durante el invierno?",
     },
     {
@@ -9167,7 +9167,7 @@ export function getStaticData() {
     {
       verb: "To Want",
       tense: "Past Perfect",
-      text: "[Had] you [wanted] to visit us before we moved?",
+      text: "Had you [wanted] to visit us before we moved?",
       translation: "¿Habías querido visitarnos antes de que nos mudáramos?",
     },
     {
@@ -9186,7 +9186,7 @@ export function getStaticData() {
     {
       verb: "To Want",
       tense: "Past Perfect",
-      text: "[Had] he [wanted] to join the army before he met her?",
+      text: "Had he [wanted] to join the army before he met her?",
       translation: "¿Había querido él unirse al ejército antes de conocerla?",
     },
     {
@@ -9204,7 +9204,7 @@ export function getStaticData() {
     {
       verb: "To Want",
       tense: "Past Perfect",
-      text: "[Had] they [wanted] to buy the house before the price went up?",
+      text: "Had they [wanted] to buy the house before the price went up?",
       translation:
         "¿Habían querido ellos comprar la casa antes de que subiera el precio?",
     },
@@ -9231,7 +9231,7 @@ export function getStaticData() {
     {
       verb: "To Want",
       tense: "Past Perfect Continuous",
-      text: "[Had] you [been wanting] to talk to me about something important?",
+      text: "Had you [been wanting] to talk to me about something important?",
       translation:
         "¿Habías estado queriendo hablar conmigo sobre algo importante?",
     },
@@ -9252,7 +9252,7 @@ export function getStaticData() {
     {
       verb: "To Want",
       tense: "Past Perfect Continuous",
-      text: "[Had] he [been wanting] a promotion for a long time?",
+      text: "Had he [been wanting] a promotion for a long time?",
       translation:
         "¿Había estado él queriendo un ascenso durante mucho tiempo?",
     },
@@ -9272,7 +9272,7 @@ export function getStaticData() {
     {
       verb: "To Want",
       tense: "Past Perfect Continuous",
-      text: "[Were] they [wanting] to start a family before the move?",
+      text: "Were they [wanting] to start a family before the move?",
       translation:
         "¿Habían estado ellos queriendo formar una familia antes de la mudanza?",
     },
@@ -9299,7 +9299,7 @@ export function getStaticData() {
     {
       verb: "To Want",
       tense: "Future Simple",
-      text: "[Will] you [want] to go out for dinner tomorrow night?",
+      text: "Will you [want] to go out for dinner tomorrow night?",
       translation: "¿Querrás salir a cenar mañana por la noche?",
     },
     {
@@ -9318,7 +9318,7 @@ export function getStaticData() {
     {
       verb: "To Want",
       tense: "Future Simple",
-      text: "[Will] he [want] some help with the decorations?",
+      text: "Will he [want] some help with the decorations?",
       translation: "¿Querrá él algo de ayuda con las decoraciones?",
     },
     {
@@ -9336,7 +9336,7 @@ export function getStaticData() {
     {
       verb: "To Want",
       tense: "Future Simple",
-      text: "[Will] they [want] to join us for the hike?",
+      text: "Will they [want] to join us for the hike?",
       translation: "¿Querrán ellos unirse a nosotros para la caminata?",
     },
     {
@@ -9361,7 +9361,7 @@ export function getStaticData() {
     {
       verb: "To Want",
       tense: "Future Continuous",
-      text: "[Will] you [be wanting] coffee when you wake up?",
+      text: "Will you [be wanting] coffee when you wake up?",
       translation: "¿Estarás queriendo café cuando te despiertes?",
     },
     {
@@ -9380,7 +9380,7 @@ export function getStaticData() {
     {
       verb: "To Want",
       tense: "Future Continuous",
-      text: "[Will] he [be wanting] to use the computer this afternoon?",
+      text: "Will he [be wanting] to use the computer this afternoon?",
       translation: "¿Estará él queriendo usar la computadora esta tarde?",
     },
     {
@@ -9399,7 +9399,7 @@ export function getStaticData() {
     {
       verb: "To Want",
       tense: "Future Continuous",
-      text: "[Will] they [be wanting] to stay for the whole weekend?",
+      text: "Will they [be wanting] to stay for the whole weekend?",
       translation: "¿Estarán ellos queriendo quedarse todo el fin de semana?",
     },
     {
@@ -9425,7 +9425,7 @@ export function getStaticData() {
     {
       verb: "To Want",
       tense: "Future Perfect",
-      text: "[Will] you [have wanted] to see the manager before you leave?",
+      text: "Will you [have wanted] to see the manager before you leave?",
       translation: "¿Habrás querido ver al gerente antes de irte?",
     },
     {
@@ -9444,7 +9444,7 @@ export function getStaticData() {
     {
       verb: "To Want",
       tense: "Future Perfect",
-      text: "[Will] he [have wanted] to meet the team by the time he arrives?",
+      text: "Will he [have wanted] to meet the team by the time he arrives?",
       translation: "¿Habrá querido él conocer al equipo para cuando llegue?",
     },
     {
@@ -9462,7 +9462,7 @@ export function getStaticData() {
     {
       verb: "To Want",
       tense: "Future Perfect",
-      text: "[Will] they [have wanted] to upgrade their software by next month?",
+      text: "Will they [have wanted] to upgrade their software by next month?",
       translation:
         "¿Habrán ellos querido actualizar su software para el próximo mes?",
     },
@@ -9489,7 +9489,7 @@ export function getStaticData() {
     {
       verb: "To Want",
       tense: "Future Perfect Continuous",
-      text: "[Will] you [have been wanting] to quit your job for long by then?",
+      text: "Will you [have been wanting] to quit your job for long by then?",
       translation:
         "¿Habrás estado queriendo dejar tu trabajo por mucho tiempo para entonces?",
     },
@@ -9510,7 +9510,7 @@ export function getStaticData() {
     {
       verb: "To Want",
       tense: "Future Perfect Continuous",
-      text: "[Will] he [have been wanting] to buy that apartment for a while?",
+      text: "Will he [have been wanting] to buy that apartment for a while?",
       translation:
         "¿Habrá estado él queriendo comprar ese apartamento por un tiempo?",
     },
@@ -9530,7 +9530,7 @@ export function getStaticData() {
     {
       verb: "To Want",
       tense: "Future Perfect Continuous",
-      text: "[Will] they [have been wanting] to redesign the website for long?",
+      text: "Will they [have been wanting] to redesign the website for long?",
       translation:
         "¿Habrán estado ellos queriendo rediseñar el sitio web por mucho tiempo?",
     },
