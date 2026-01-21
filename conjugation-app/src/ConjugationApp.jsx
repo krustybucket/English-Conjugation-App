@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
-import { Check, ArrowRight, RefreshCw, BookOpen, Trophy, AlertCircle, Sparkles, Globe, Loader2, Settings, Sliders, X, Filter, Search, Zap, Moon, Sun, Key, Volume2, XCircle, CheckCircle } from 'lucide-react';
+import { Check, ArrowRight, RefreshCw, BookOpen, Trophy, AlertCircle, Sparkles, Globe, Loader2, Settings, Sliders, X, Filter, Search, Zap, Moon, Sun, Key, Volume2, XCircle, CheckCircle, Book } from 'lucide-react';
 import {getStaticData} from './data';
 
 const ConjugationApp = () => {
   // Load data
-  const { ALL_TENSES, ALL_VERBS, CUSTOM_LIBRARY } = useMemo(() => getStaticData(), []);
+  const { ALL_TENSES, ALL_VERBS, CUSTOM_LIBRARY, TENSE_GUIDE } = useMemo(() => getStaticData(), []);
 
   // State
   const [exercises, setExercises] = useState([]); 
@@ -212,6 +212,7 @@ const ConjugationApp = () => {
   };
 
   const handleNext = () => {
+    // Check if we reached the end of the current set
     if (currentExerciseIndex + 1 >= exercises.length) {
       setView('summary');
       return;
@@ -415,6 +416,42 @@ const ConjugationApp = () => {
       </main>
     );
   };
+
+  // Render Guide View
+  const renderGuideView = () => (
+    <main className={`w-full max-w-md rounded-2xl shadow-xl overflow-hidden border animate-in fade-in zoom-in-95 flex flex-col h-[80vh] transition-colors duration-300 ${isDarkMode ? 'bg-slate-900 border-slate-800' : 'bg-white border-slate-100'}`}>
+      <div className={`p-6 pb-2 border-b ${isDarkMode ? 'border-slate-800' : 'border-slate-100'}`}>
+        <div className="flex justify-between items-center mb-4">
+          <h2 className={`text-xl font-bold flex items-center gap-2 ${isDarkMode ? 'text-slate-100' : 'text-slate-800'}`}>
+            <Book size={20} className={isDarkMode ? 'text-blue-400' : 'text-blue-600'}/>
+            Guía de Tiempos
+          </h2>
+          <button onClick={() => setView('settings')} className={`transition-colors ${isDarkMode ? 'text-slate-400 hover:text-slate-200' : 'text-slate-400 hover:text-slate-600'}`}>
+            <X size={24} />
+          </button>
+        </div>
+      </div>
+
+      <div className="flex-1 overflow-y-auto p-6 space-y-6 custom-scrollbar">
+        {TENSE_GUIDE.map((item, index) => (
+          <div key={index} className={`p-4 rounded-xl border ${isDarkMode ? 'bg-slate-800 border-slate-700' : 'bg-slate-50 border-slate-200'}`}>
+            <h3 className={`text-lg font-bold mb-2 ${isDarkMode ? 'text-blue-400' : 'text-blue-700'}`}>{item.name}</h3>
+            <p className={`text-sm mb-2 ${isDarkMode ? 'text-slate-300' : 'text-slate-700'}`}>
+              <strong>Uso:</strong> {item.usage}
+            </p>
+            <div className={`text-xs p-2 rounded ${isDarkMode ? 'bg-slate-900' : 'bg-white'} border ${isDarkMode ? 'border-slate-700' : 'border-slate-200'}`}>
+              <p className={`mb-1 ${isDarkMode ? 'text-slate-400' : 'text-slate-500'}`}>
+                <strong>Estructura:</strong> {item.structure}
+              </p>
+              <p className={`font-mono ${isDarkMode ? 'text-green-400' : 'text-green-700'}`}>
+                {item.example}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </main>
+  );
 
   // Render Summary View
   const renderSummaryView = () => (
@@ -661,6 +698,15 @@ const ConjugationApp = () => {
         </div>
         
         <div className="flex items-center gap-4">
+            <button 
+              onClick={() => setView('guide')} 
+              className={`p-2 rounded-full transition-colors ${isDarkMode ? 'bg-slate-800 text-blue-400 hover:bg-slate-700' : 'bg-slate-200 text-blue-600 hover:bg-slate-300'}`}
+              aria-label="Ver Guía"
+              title="Guía de Tiempos Verbales"
+            >
+              <Book size={20} />
+            </button>
+
             <div className="hidden sm:flex gap-3">
               <div className="flex flex-col items-end">
                 <span className={`text-xs font-bold uppercase tracking-wider ${isDarkMode ? 'text-slate-500' : 'text-slate-400'}`}>Score</span>
@@ -705,6 +751,7 @@ const ConjugationApp = () => {
       {view === 'practice' && renderPracticeView()}
       {view === 'settings' && renderSettingsView()}
       {view === 'summary' && renderSummaryView()}
+      {view === 'guide' && renderGuideView()}
 
       <div className={`mt-8 text-sm max-w-xs text-center transition-colors ${isDarkMode ? 'text-slate-600' : 'text-slate-400'}`}>
         Created for Spanish speakers learning English. <br/> Data provided by Custom Library
