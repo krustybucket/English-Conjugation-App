@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
-import { Check, ArrowRight, RefreshCw, BookOpen, Trophy, AlertCircle, Sparkles, Globe, Loader2, Settings, Sliders, X, Filter, Search, Zap, Moon, Sun, Key, Volume2 } from 'lucide-react';
-import { getStaticData } from './data';
-
+import { Check, ArrowRight, RefreshCw, BookOpen, Trophy, AlertCircle, Sparkles, Globe, Loader2, Settings, Sliders, X, Filter, Search, Zap, Moon, Sun, Key, Volume2, XCircle, CheckCircle } from 'lucide-react';
+import {getStaticData} from './data';
 
 const ConjugationApp = () => {
   // Load data
@@ -16,6 +15,10 @@ const ConjugationApp = () => {
   const [score, setScore] = useState(0);
   const [streak, setStreak] = useState(0);
   const [showHint, setShowHint] = useState(false);
+  
+  // New State for improvements
+  const [mistakes, setMistakes] = useState([]); // Track missed questions
+  const [shake, setShake] = useState(false); // For visual feedback animation
   
   // Loading States
   const [isFetching, setIsFetching] = useState(false);
@@ -139,12 +142,14 @@ const ConjugationApp = () => {
       setCurrentExerciseIndex(0);
       setUserInput("");
       setStatus("idle");
+      setMistakes([]); // Reset mistakes for new round
       setView('practice');
       return;
     }
     
     setIsFetching(true);
     setApiError(null);
+    setMistakes([]);
     
     try {
       const newExercises = await getExercises(batchSize, selectedTenses, selectedVerbs);
@@ -170,14 +175,9 @@ const ConjugationApp = () => {
   // --- TTS HELPER ---
   const speakSentence = (text) => {
     if ('speechSynthesis' in window) {
-      // Cancel any current speech
       window.speechSynthesis.cancel();
-      
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = 'en-US';
-      // Optional: adjust rate or pitch
-      // utterance.rate = 0.9;
-      
       window.speechSynthesis.speak(utterance);
     }
   };
@@ -194,16 +194,24 @@ const ConjugationApp = () => {
       setStatus("correct");
       setScore(score + 10);
       setStreak(streak + 1);
-      // Play TTS automatically on success
       speakSentence(currentExercise.fullSentence);
     } else {
       setStatus("incorrect");
       setStreak(0);
+      setShake(true); // Trigger shake animation
+      setTimeout(() => setShake(false), 500); // Reset shake after animation
+      
+      // Track mistake (prevent duplicates if checking multiple times)
+      setMistakes(prev => {
+        if (!prev.some(m => m.id === currentExercise.id)) {
+            return [...prev, { ...currentExercise, usersWrongAnswer: userInput }];
+        }
+        return prev;
+      });
     }
   };
 
   const handleNext = () => {
-    // Check if we reached the end of the current set
     if (currentExerciseIndex + 1 >= exercises.length) {
       setView('summary');
       return;
@@ -222,22 +230,18 @@ const ConjugationApp = () => {
   };
 
   // --- NEW FEATURE: ENTER KEY NAVIGATION ---
-  // Listen for 'Enter' key when status is 'correct' to trigger Next
   useEffect(() => {
     const handleGlobalKeyDown = (e) => {
       if (status === 'correct' && e.key === 'Enter') {
-        e.preventDefault(); // Prevent default browser behavior
+        e.preventDefault();
         handleNext();
       }
     };
-
     window.addEventListener('keydown', handleGlobalKeyDown);
-    
-    // Cleanup listener on unmount or status change
     return () => {
       window.removeEventListener('keydown', handleGlobalKeyDown);
     };
-  }, [status, handleNext]); // Dependencies ensure it uses latest state
+  }, [status, handleNext]);
 
   // --- VIEWS ---
 
@@ -279,9 +283,24 @@ const ConjugationApp = () => {
           </div>
 
           <form onSubmit={handleCheck} className="mb-6">
-            <div className={`p-6 rounded-xl border text-lg sm:text-xl leading-relaxed text-center shadow-inner transition-colors duration-300 relative ${isDarkMode ? 'bg-slate-800 border-slate-700 text-slate-200' : 'bg-slate-50 border-slate-200 text-slate-800'}`}>
+            <div className={`
+                p-6 rounded-xl border text-lg sm:text-xl leading-relaxed text-center shadow-inner transition-all duration-300 relative
+                ${isDarkMode ? 'bg-slate-800 border-slate-700 text-slate-200' : 'bg-slate-50 border-slate-200 text-slate-800'}
+                ${shake ? 'animate-shake border-red-400' : ''} 
+            `}>
+              {/* CSS for Shake Animation */}
+              <style>{`
+                @keyframes shake {
+                  0%, 100% { transform: translateX(0); }
+                  25% { transform: translateX(-5px); }
+                  75% { transform: translateX(5px); }
+                }
+                .animate-shake {
+                  animation: shake 0.3s ease-in-out;
+                }
+              `}</style>
               
-              {/* TTS Button - Only visible when not idle (answer revealed) */}
+              {/* TTS Button */}
               {status !== 'idle' && (
                 <button
                   type="button"
@@ -358,7 +377,7 @@ const ConjugationApp = () => {
                 onClick={handleNext}
                 className="w-full py-3.5 bg-green-500 hover:bg-green-600 text-white rounded-xl font-bold shadow-lg shadow-green-500/25 transition-all transform active:scale-95 flex items-center justify-center gap-2 animate-in fade-in slide-in-from-bottom-2"
               >
-                <span>Siguiente / Next</span>
+                <span>Siguiente / Next (Enter)</span>
                 <ArrowRight size={20} />
               </button>
             )}
@@ -399,26 +418,52 @@ const ConjugationApp = () => {
 
   // Render Summary View
   const renderSummaryView = () => (
-    <main className={`w-full max-w-md rounded-2xl shadow-xl overflow-hidden border animate-in fade-in zoom-in-95 text-center p-8 transition-colors duration-300 ${isDarkMode ? 'bg-slate-900 border-slate-800' : 'bg-white border-slate-100'}`}>
-      <div className="flex justify-center mb-6">
-        <div className={`p-4 rounded-full ${isDarkMode ? 'bg-yellow-900/30 text-yellow-400' : 'bg-yellow-100 text-yellow-600'}`}>
-          <Trophy size={48} />
+    <main className={`w-full max-w-md rounded-2xl shadow-xl overflow-hidden border animate-in fade-in zoom-in-95 p-8 transition-colors duration-300 flex flex-col ${isDarkMode ? 'bg-slate-900 border-slate-800' : 'bg-white border-slate-100'}`}>
+      <div className="text-center">
+        <div className="flex justify-center mb-6">
+            <div className={`p-4 rounded-full ${isDarkMode ? 'bg-yellow-900/30 text-yellow-400' : 'bg-yellow-100 text-yellow-600'}`}>
+            <Trophy size={48} />
+            </div>
+        </div>
+        
+        <h2 className={`text-2xl font-bold mb-2 ${isDarkMode ? 'text-slate-100' : 'text-slate-800'}`}>Round Complete!</h2>
+        <p className={`mb-8 ${isDarkMode ? 'text-slate-400' : 'text-slate-500'}`}>You've finished this set of exercises.</p>
+        
+        <div className="grid grid-cols-2 gap-4 mb-8">
+            <div className={`p-4 rounded-xl border ${isDarkMode ? 'bg-slate-800 border-slate-700' : 'bg-slate-50 border-slate-100'}`}>
+            <div className={`text-xs font-bold uppercase tracking-wider mb-1 ${isDarkMode ? 'text-slate-500' : 'text-slate-400'}`}>Total Score</div>
+            <div className={`text-2xl font-bold ${isDarkMode ? 'text-blue-400' : 'text-blue-600'}`}>{score}</div>
+            </div>
+            <div className={`p-4 rounded-xl border ${isDarkMode ? 'bg-slate-800 border-slate-700' : 'bg-slate-50 border-slate-100'}`}>
+            <div className={`text-xs font-bold uppercase tracking-wider mb-1 ${isDarkMode ? 'text-slate-500' : 'text-slate-400'}`}>Current Streak</div>
+            <div className={`text-2xl font-bold ${isDarkMode ? 'text-orange-400' : 'text-orange-500'}`}>{streak}</div>
+            </div>
         </div>
       </div>
-      
-      <h2 className={`text-2xl font-bold mb-2 ${isDarkMode ? 'text-slate-100' : 'text-slate-800'}`}>Round Complete!</h2>
-      <p className={`mb-8 ${isDarkMode ? 'text-slate-400' : 'text-slate-500'}`}>You've finished this set of exercises.</p>
-      
-      <div className="grid grid-cols-2 gap-4 mb-8">
-        <div className={`p-4 rounded-xl border ${isDarkMode ? 'bg-slate-800 border-slate-700' : 'bg-slate-50 border-slate-100'}`}>
-          <div className={`text-xs font-bold uppercase tracking-wider mb-1 ${isDarkMode ? 'text-slate-500' : 'text-slate-400'}`}>Total Score</div>
-          <div className={`text-2xl font-bold ${isDarkMode ? 'text-blue-400' : 'text-blue-600'}`}>{score}</div>
-        </div>
-        <div className={`p-4 rounded-xl border ${isDarkMode ? 'bg-slate-800 border-slate-700' : 'bg-slate-50 border-slate-100'}`}>
-           <div className={`text-xs font-bold uppercase tracking-wider mb-1 ${isDarkMode ? 'text-slate-500' : 'text-slate-400'}`}>Current Streak</div>
-           <div className={`text-2xl font-bold ${isDarkMode ? 'text-orange-400' : 'text-orange-500'}`}>{streak}</div>
-        </div>
-      </div>
+
+      {/* --- MISTAKES REVIEW SECTION --- */}
+      {mistakes.length > 0 && (
+          <div className="mb-8 w-full">
+              <h3 className={`text-sm font-bold uppercase tracking-wide mb-3 ${isDarkMode ? 'text-slate-400' : 'text-slate-600'}`}>Needs Review</h3>
+              <div className="space-y-3 max-h-60 overflow-y-auto custom-scrollbar pr-1">
+                  {mistakes.map((mistake, i) => (
+                      <div key={i} className={`p-3 rounded-lg border text-left text-sm ${isDarkMode ? 'bg-red-900/20 border-red-900/50' : 'bg-red-50 border-red-100'}`}>
+                          <div className="flex items-center gap-2 mb-1">
+                              <XCircle size={14} className="text-red-500" />
+                              <span className={`font-semibold ${isDarkMode ? 'text-slate-300' : 'text-slate-700'}`}>{mistake.verb} ({mistake.tense})</span>
+                          </div>
+                          <div className={`pl-6 mb-2 ${isDarkMode ? 'text-slate-400' : 'text-slate-600'}`}>
+                              "{mistake.sentenceParts[0]} <span className="line-through decoration-red-500 text-red-500 font-medium">{mistake.usersWrongAnswer}</span> {mistake.sentenceParts[1]}"
+                          </div>
+                          <div className={`pl-6 flex items-center gap-2 font-bold ${isDarkMode ? 'text-green-400' : 'text-green-600'}`}>
+                              <CheckCircle size={14} />
+                              <span>{mistake.answer}</span>
+                          </div>
+                      </div>
+                  ))}
+              </div>
+          </div>
+      )}
 
       <button 
         onClick={() => handleLoadExercises(true)}
