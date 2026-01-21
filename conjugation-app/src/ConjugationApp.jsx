@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { Check, ArrowRight, RefreshCw, BookOpen, Trophy, AlertCircle, Sparkles, Globe, Loader2, Settings, Sliders, X, Filter, Search, Zap, Moon, Sun, Key, Volume2, XCircle, CheckCircle, Book } from 'lucide-react';
-import {getStaticData} from './data';
-
+import { getStaticData } from './data';
 const ConjugationApp = () => {
   // Load data
   const { ALL_TENSES, ALL_VERBS, CUSTOM_LIBRARY, TENSE_GUIDE } = useMemo(() => getStaticData(), []);
@@ -47,6 +46,44 @@ const ConjugationApp = () => {
   }, []);
 
   const toggleTheme = () => setIsDarkMode(!isDarkMode);
+
+  // --- SEO INJECTION (Rebranding) ---
+  useEffect(() => {
+    // 1. Update Title
+    document.title = "Conjugo | Aprende Verbos en Inglés";
+
+    // 2. Update Meta Description
+    let metaDesc = document.querySelector("meta[name='description']");
+    if (!metaDesc) {
+        metaDesc = document.createElement('meta');
+        metaDesc.name = "description";
+        document.head.appendChild(metaDesc);
+    }
+    metaDesc.content = "Domina la conjugación de verbos en inglés con Conjugo. Práctica interactiva diseñada para hispanohablantes.";
+
+    // 3. Add Keywords
+    let metaKeywords = document.querySelector("meta[name='keywords']");
+    if (!metaKeywords) {
+        metaKeywords = document.createElement('meta');
+        metaKeywords.name = "keywords";
+        document.head.appendChild(metaKeywords);
+    }
+    metaKeywords.content = "inglés, verbos, conjugación, aprender inglés, english verbs, esl, gramática";
+
+    // 4. Open Graph for Social Sharing
+    const setOgTag = (prop, content) => {
+        let tag = document.querySelector(`meta[property="${prop}"]`);
+        if (!tag) {
+            tag = document.createElement('meta');
+            tag.setAttribute('property', prop);
+            document.head.appendChild(tag);
+        }
+        tag.setAttribute('content', content);
+    };
+    setOgTag('og:title', 'Conjugo - Verbos en Inglés');
+    setOgTag('og:description', 'La mejor forma de practicar los tiempos verbales.');
+    setOgTag('og:url', 'https://conjugo.app');
+  }, []);
 
   // Focus management
   useEffect(() => {
@@ -692,7 +729,7 @@ const ConjugationApp = () => {
             <BookOpen size={24} />
           </div>
           <div>
-            <h1 className={`font-bold text-lg leading-tight ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Verb Master</h1>
+            <h1 className={`font-bold text-lg leading-tight ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Conjugo</h1>
             <p className={`text-xs ${isDarkMode ? 'text-slate-400' : 'text-slate-500'}`}>Practice English Verbs</p>
           </div>
         </div>
